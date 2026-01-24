@@ -1,0 +1,57 @@
+erp
+Prix négatifs : Probable erreur de saisie (ex: oubli de signe ou calcul erroné). Pourquoi complexe ? Ça peut fausser les CA/marges ; on vérifiera plus tard avec Z-Score/boxplot comme demandé.
+Stocks négatifs : Erreur de saisie ou de calcul (ex: sur-vente non gérée). Pourquoi ? L'ERP devrait empêcher ça ; suggère un bug système.
+
+web
+Erreurs identifiées ici (ajoute 4, total 6) :
+3. Doublons (82) : Erreur d'export/saisie.
+4. Colonnes 100% vides (tax_class, post_content) : Inutiles, gaspille espace.
+5. Mélange types (products/attachments) : Web inclut images ; filtrer sur post_type='product' pour focus produits.
+6. Manquants sku/total_sales : Produits sans ID/ventes ; peut causer erreurs jointure
+7-Manquants id_web : Erreur jointure potentielle ; produits orphelins..
+
+
+
+
+il fallait installer plotly.epress via command, pip install openpyxl aussi
+probles sur les stocks, c'est à dire, il y'a des marchandises qui marquent 0, mais qui marquent instock.On utilise np.where pour une condition simple (si <=0, outofstock; sinon instock). La somme des True/False permet de quantifier les écarts (824/825 signifie 1 erreur). On corrige pour assurer la cohérence des données, car un stock=0 ne peut pas être 'instock' logiquement – c'est une incohérence probable due à une saisie manuelle.
+
+articles avec des prix négatifs
+
+Les doublons dans web.xlsx viennent souvent de lignes "attachment" (images) vs "product". On filtre sur post_type == 'product' et drop_duplicates pour avoir une table propre avec SKU uniques, car le merge se fait sur SKU. Les NaN sont inutiles pour l'analyse des ventes.
+
+dans le ffichier liaison, on remarque qu'on a des articles (91) sans corresponda,ces, peut etre ne se vendent pas ligne?
+
+pourquoi boîte à moustache?
+pour fig(plotly express, il fallait aussi installer le nbformat package
+besoin de plus d'expliquation sur ecart type et zscore ecart type, cest la moyenne des ecarts qu'on les articles par rapport à leur moyenne de prix, zscore cest pour verifier si il y'a une aberration(outlier)(si zscore>3 ou <),pourquoi peut il avoir aberration? comment regler?: en verifiant si cest ps une erreur de saise d'article, si cest pas en centime au lieu deuros, si cest pas un produit premium
+
+il ya 68 articles abberantes, faudrait analyser car elle fait 4 pourcent
+
+Création de la colonne Rotation de stock? . Il indique la fréquence à laquelle une entreprise renouvelle ses stocks sur une période donnée, généralement une année
+Rotation élevée (> 6) :
+Généralement considérée comme très bonne
+Rotation bonne (4 – 6) :
+Considérée comme satisfaisante
+Rotation moyenne (2 – 4) :
+Peut être acceptable selon le secteur d’activité
+Rotation faible (< 2) :
+Généralement considérée comme préoccupante
+Rotation très élevée (> 12) :
+Peut être exceptionnelle mais aussi risquée
+
+# Flop 20 des produits avec forte rotation
+
+Si rotation > 6 mois :
+  ❌ Réduire les commandes
+  ❌ Arrêter la production
+  ❌ Faire une promotion/solde
+  ❌ Retirer du catalogue
+  
+Si rotation < 0.5 mois :
+  ✅ Augmenter les commandes
+  ✅ Stock insuffisant = ventes perdues
+  ✅ Produit rentable = à développer
+
+Valorisation des stocks?
+

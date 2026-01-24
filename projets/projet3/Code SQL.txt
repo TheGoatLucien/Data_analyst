@@ -1,0 +1,31 @@
+
+CREATE TABLE Region (
+                Code_dep_code_commune VARCHAR NOT NULL,
+                aca_nom VARCHAR NOT NULL,
+                dep_nom VARCHAR NOT NULL,
+                reg_code INTEGER NOT NULL,
+                reg_nom VARCHAR NOT NULL,
+                dep_code VARCHAR NOT NULL,
+                com_nom_maj_court VARCHAR NOT NULL,
+                dep_nom_num VARCHAR NOT NULL,
+                CONSTRAINT Code_dep_code_commune PRIMARY KEY (Code_dep_code_commune)
+);
+
+
+CREATE TABLE Contrat (
+                Contrat_ID INTEGER NOT NULL,
+                No_voie INTEGER NOT NULL,
+                Voie VARCHAR NOT NULL,
+                B_T_Q VARCHAR NOT NULL,
+                Type_de_voie VARCHAR NOT NULL,
+                Code_dep_code_commune VARCHAR NOT NULL,
+                CONSTRAINT Contrat_ID PRIMARY KEY (Contrat_ID)
+);
+
+
+ALTER TABLE Contrat ADD CONSTRAINT Region_Contrat_fk
+FOREIGN KEY (Code_dep_code_commune)
+REFERENCES Region (Code_dep_code_commune)
+ON DELETE NO ACTION
+ON UPDATE NO ACTION
+NOT DEFERRABLE;
