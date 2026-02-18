@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+  - name: openclassrooms
+    database: OC_DATA_PROJECT
+    schema: RAW
+    description: "Données brutes des étudiants OpenClassrooms parcours Data"
+    tables:
+      - name: students
+        description: "Profil sociodémographique des étudiants Data (2022-2025)"
+        columns:
+          - name: user_id
+            description: "Identifiant technique unique de l’étudiant (pseudonymisé)"
+            tests:
+              # - unique  # Commenté : doublons dans raw, dédupliqués en staging
+              - not_null
+          - name: year_path_started
+            description: "Année de début du parcours (2022-2025)"
+            tests:
+              - not_null
+              - accepted_values:
+                  values: [2022, 2023, 2024, 2025]
+
+models:
+  - name: stg_students
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+  
+  - name: fct_students_demo
+    description: "Table analytique évolution socio-démo étudiants Data"
+    columns:
+      - name: year_path_started
+        tests:
+          - not_null
+      - name: total_etudiants
+        tests:
+          - not_null

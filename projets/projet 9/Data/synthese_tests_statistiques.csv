@@ -1,0 +1,7 @@
+Test;Type de test;Statistique;p-value;Significatif (α=0.05)
+Genre ↔ Catégorie;χ² (Khi-deux);χ² = 4.8977;0.086393; NON
+Âge ↔ Montant total;Pearson;r = -0.1876;0.000000; OUI
+Âge ↔ Fréquence achat;Spearman;ρ = 0.1277;0.000000; OUI
+Âge ↔ Panier moyen;Pearson;r = -0.5105;0.000000; OUI
+Âge ↔ Catégorie (χ²);χ² (Khi-deux);χ² = 5047.2958;0.000000; OUI
+Âge ↔ Catégorie (ANOVA);ANOVA;F = 1201.7032;0.000000; OUI

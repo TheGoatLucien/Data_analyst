@@ -1,0 +1,229 @@
+version: 2
+
+
+# DÉCLARATION DES SOURCES DE DONNÉES
+
+# Ce fichier déclare les tables sources brutes dans Snowflake et définit les tests de qualité à appliquer sur ces sources.
+# Auteur: Nzeutom Lucien
+# Date: Janvier 2026
+
+
+sources:
+  - name: openclassrooms
+    description: "Données brutes des étudiants OpenClassrooms parcours Data (2022-2025)"
+    database: OC_DATA_PROJECT
+    schema: RAW
+    
+    tables:
+      - name: students
+        description: |
+          Table contenant le profil sociodémographique des étudiants inscrits
+          aux parcours Data d'OpenClassrooms.
+          
+          Source: Bases internes OpenClassrooms
+          Période: 2022-2025
+          Fréquence de mise à jour: Mensuelle
+          
+           RGPD: Les USER_ID sont pseudonymisés
+        
+        columns:
+          - name: user_id
+            description: |
+              Identifiant technique unique de l'étudiant (pseudonymisé).
+              Format: U-XXXXXXXXXXXXXX ou UXXXXXXXXXXXXXX
+              
+               Conforme RGPD: Pseudonymisation appliquée
+            tests:
+              - unique:
+                  severity: error
+              - not_null:
+                  severity: error
+          
+          - name: path_category_name
+            description: |
+              Catégorie du parcours suivi par l'étudiant.
+              Valeur typique: "Data"
+          
+          - name: age_group
+            description: |
+              Classe d'âge de l'étudiant au moment du début du parcours.
+              
+              Valeurs possibles:
+              - "18-24 ans"
+              - "25-29 ans"
+              - "30-34 ans"
+              - "35-39 ans"
+              - "40-44 ans"
+              - "45-49 ans"
+              - "50-54 ans"
+              - "55-59 ans"
+              - "60 ans ou plus"
+          
+          - name: gender
+            description: |
+              Genre déclaré par l'étudiant.
+              
+              Valeurs possibles:
+              - "M" : Homme
+              - "F" : Femme
+              - NULL ou vide : Non renseigné
+              
+              Note: Forte amélioration du taux de renseignement entre 2022 (58%) et 2025 (93%)
+          
+          - name: region
+            description: |
+              Région de résidence de l'étudiant (découpage administratif français).
+              
+              Exemples:
+              - "Île-de-France"
+              - "Auvergne-Rhône-Alpes"
+              - "Provence-Alpes-Côte d'Azur"
+              - "DROM" (Départements et Régions d'Outre-Mer)
+          
+          - name: year_path_started
+            description: |
+              Année de début du parcours de l'étudiant.
+              
+              Période d'analyse: 2022-2025
+            tests:
+              - not_null:
+                  severity: error
+              - accepted_values:
+                  values: [2022, 2023, 2024, 2025]
+                  severity: error
+
+
+# DOCUMENTATION DES MODÈLES DBT
+
+
+models:
+  - name: stg_students
+    description: |
+      Table staging contenant les données étudiants nettoyées et normalisées.
+      
+      Transformations appliquées:
+      - Normalisation des genres (M → Homme, F → Femme, vide → Non renseigné)
+      - Nettoyage des valeurs textuelles (trim, uppercase)
+      - Filtrage des années valides (2022-2025)
+      - Dédoublonnage des USER_ID (garde la ligne la plus récente)
+      
+      Matérialisation: Table
+      Localisation: DBT_NLUCIEN.stg_students
+    
+    columns:
+      - name: user_id
+        description: "Identifiant unique de l'étudiant (pseudonymisé)"
+        tests:
+          - unique
+          - not_null
+      
+      - name: path_category_name
+        description: "Catégorie du parcours (normalisée en MAJUSCULES)"
+      
+      - name: age_group
+        description: "Classe d'âge (nettoyée)"
+      
+      - name: gender
+        description: |
+          Genre normalisé:
+          - "Homme"
+          - "Femme"
+          - "Non renseigné"
+      
+      - name: region
+        description: "Région de résidence (nettoyée)"
+      
+      - name: year_path_started
+        description: "Année de début du parcours (2022-2025)"
+
+  - name: fct_students_demo
+    description: |
+      Table analytique contenant l'évolution démographique des étudiants par année.
+      
+      Agrégations:
+      - Nombre total d'étudiants par année
+      - Pourcentage et nombre par genre (Homme, Femme, Non renseigné)
+      
+      Matérialisation: Table
+      Localisation: DBT_NLUCIEN.fct_students_demo
+      
+      Utilisation: Analyse de l'évolution temporelle, graphiques de tendance
+    
+    columns:
+      - name: year_path_started
+        description: "Année d'analyse"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [2022, 2023, 2024, 2025]
+      
+      - name: total_etudiants
+        description: "Nombre total d'étudiants pour l'année"
+        tests:
+          - not_null
+      
+      - name: pct_hommes
+        description: "Pourcentage d'hommes (0-100)"
+        tests:
+          - not_null
+      
+      - name: pct_femmes
+        description: "Pourcentage de femmes (0-100)"
+        tests:
+          - not_null
+      
+      - name: pct_non_renseignes
+        description: "Pourcentage de genre non renseigné (0-100)"
+        tests:
+          - not_null
+      
+      - name: nb_hommes
+        description: "Nombre d'hommes"
+      
+      - name: nb_femmes
+        description: "Nombre de femmes"
+      
+      - name: nb_non_renseignes
+        description: "Nombre de genres non renseignés"
+
+  - name: fct_students_by_region
+    description: |
+      Table analytique contenant la répartition des étudiants par région.
+      
+      Agrégations:
+      - Nombre total d'étudiants par région
+      - Répartition par genre par région
+      - Répartition par année par région
+      
+      Matérialisation: Table
+      Localisation: DBT_NLUCIEN.fct_students_by_region
+      
+      Utilisation: Analyse géographique, cartes, top régions
+
+  - name: fct_students_by_age
+    description: |
+      Table analytique contenant la répartition des étudiants par tranche d'âge.
+      
+      Agrégations:
+      - Nombre total d'étudiants par tranche d'âge
+      - Répartition par genre par tranche d'âge
+      - Répartition par année par tranche d'âge
+      
+      Matérialisation: Table
+      Localisation: DBT_NLUCIEN.fct_students_by_age
+      
+      Utilisation: Analyse démographique, pyramide des âges
+
+  - name: fct_comparison_oc_insee
+    description: |
+      Table analytique comparant les données OpenClassrooms avec les données INSEE.
+      
+      Enrichissement:
+      - Jointure avec données démographiques INSEE
+      - Calcul des écarts de répartition hommes/femmes
+      - Ratio étudiants OC pour 100 000 habitants par région
+      
+      Matérialisation: Table
+      Localisation: DBT_NLUCIEN.fct_comparison_oc_insee
+      
+      Utilisation: Benchmark avec la population française, contextualisation

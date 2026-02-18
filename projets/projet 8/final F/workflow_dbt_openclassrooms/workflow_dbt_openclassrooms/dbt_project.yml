@@ -1,0 +1,63 @@
+# Configuration du projet dbt - Analyse Sociodémographique OpenClassrooms
+# Auteur: Nzeutom Lucien
+# Date: Janvier 2026
+
+name: 'oc_data_project'
+version: '1.0.0'
+config-version: 2
+
+# Profil de connexion (défini dans dbt Cloud ou profiles.yml en local)
+profile: 'default'
+
+# Chemins des dossiers du projet
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# Dossier cible pour les fichiers compilés
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Configuration des modèles
+models:
+  oc_data_project:
+    # Tous les modèles de staging
+    staging:
+      +materialized: table
+      +tags: ['staging']
+      openclassrooms:
+        +schema: staging
+        +tags: ['openclassrooms', 'staging']
+    
+    # Tous les modèles marts (analytiques)
+    marts:
+      +materialized: table
+      +tags: ['marts']
+      openclassrooms:
+        +schema: marts
+        +tags: ['openclassrooms', 'analytics']
+
+# Configuration des seeds
+seeds:
+  oc_data_project:
+    +schema: seeds
+    +tags: ['seeds']
+
+# Configuration des tests
+tests:
+  +store_failures: true
+  +schema: test_failures
+
+# Variables du projet
+vars:
+  # Années d'analyse
+  min_year: 2022
+  max_year: 2025
+  
+  # Seuils de qualité
+  max_missing_pct: 10  # Pourcentage maximum de données manquantes acceptables
