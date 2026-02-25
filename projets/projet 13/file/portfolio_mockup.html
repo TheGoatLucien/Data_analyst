@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#contact -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — [Prénom NOM] | Data Analyst</title>
+<link href="./portfolio_mockup_files/css2" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg: #FAFBFC;
+  --surface: #FFFFFF;
+  --text: #111827;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  --navy: #1F3864;
+  --blue: #2563EB;
+  --blue-light: #EFF6FF;
+  --green: #059669;
+  --green-light: #ECFDF5;
+  --orange: #D97706;
+  --orange-light: #FFFBEB;
+  --purple: #7C3AED;
+  --purple-light: #F5F3FF;
+  --red: #DC2626;
+}
+html, body { font-family:'Plus Jakarta Sans',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+
+/* NAV */
+nav { position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:0 40px; display:flex; align-items:center; justify-content:space-between; height:60px; }
+.nav-logo { font-weight:800; font-size:16px; color:var(--navy); display:flex; align-items:center; gap:8px; }
+.nav-dot { width:8px; height:8px; background:var(--blue); border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+.nav-links { display:flex; gap:28px; }
+.nav-links a { font-size:13px; font-weight:500; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--text); }
+.nav-cta { background:var(--navy); color:white; font-size:12px; font-weight:600; padding:8px 18px; border-radius:8px; text-decoration:none; }
+
+/* HERO */
+.hero { max-width:1100px; margin:0 auto; padding:80px 40px 60px; display:grid; grid-template-columns:1fr 380px; gap:60px; align-items:center; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--blue); background:var(--blue-light); padding:4px 12px; border-radius:20px; margin-bottom:20px; }
+.hero h1 { font-size:clamp(36px,4vw,56px); font-weight:800; line-height:1.1; color:var(--navy); margin-bottom:8px; }
+.hero h1 em { font-style:normal; color:var(--blue); }
+.hero-role { font-size:20px; font-weight:600; color:var(--muted); margin-bottom:20px; }
+.hero-desc { font-size:15px; color:var(--muted); max-width:520px; line-height:1.8; margin-bottom:32px; }
+.hero-actions { display:flex; gap:12px; flex-wrap:wrap; }
+.btn-primary { background:var(--navy); color:white; padding:12px 24px; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:background 0.2s; }
+.btn-primary:hover { background:#2d4ea0; }
+.btn-ghost { border:1.5px solid var(--border); color:var(--text); padding:12px 24px; border-radius:10px; font-size:14px; font-weight:500; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:border-color 0.2s; }
+.btn-ghost:hover { border-color:var(--navy); }
+
+/* HERO CARD */
+.hero-card { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:28px; box-shadow:0 8px 40px rgba(0,0,0,0.06); }
+.card-header { display:flex; align-items:center; gap:12px; margin-bottom:24px; padding-bottom:16px; border-bottom:1px solid var(--border); }
+.avatar { width:52px; height:52px; background:linear-gradient(135deg,var(--navy),var(--blue)); border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:22px; }
+.card-name { font-weight:700; font-size:15px; }
+.card-sub { font-size:12px; color:var(--muted); }
+.skills-list { display:flex; flex-direction:column; gap:10px; }
+.skill-row { display:flex; align-items:center; gap:10px; }
+.skill-name { font-size:12px; font-weight:500; min-width:90px; }
+.skill-bar { flex:1; background:#F3F4F6; border-radius:6px; height:8px; overflow:hidden; }
+.skill-fill { height:100%; border-radius:6px; }
+.skill-pct { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); min-width:32px; text-align:right; }
+.card-footer { margin-top:20px; padding-top:16px; border-top:1px solid var(--border); display:flex; gap:8px; flex-wrap:wrap; }
+.pill { font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; }
+
+/* STATS */
+.stats { background:var(--navy); padding:40px; }
+.stats-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.stat { text-align:center; }
+.stat-num { font-size:36px; font-weight:800; color:white; font-family:'DM Mono',monospace; }
+.stat-label { font-size:12px; color:rgba(255,255,255,0.6); margin-top:4px; }
+
+/* SECTION */
+section { max-width:1100px; margin:0 auto; padding:60px 40px; }
+.section-tag { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.section-tag::before { content:''; width:20px; height:2px; background:var(--blue); border-radius:2px; }
+h2 { font-size:clamp(24px,3vw,34px); font-weight:800; color:var(--navy); margin-bottom:8px; }
+.section-desc { font-size:15px; color:var(--muted); max-width:580px; margin-bottom:40px; }
+
+/* PROJECTS GRID */
+.projects-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.project-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; overflow:hidden; transition:box-shadow 0.2s, transform 0.2s; }
+.project-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.08); transform:translateY(-3px); }
+.project-thumb { height:140px; display:flex; align-items:center; justify-content:center; font-size:48px; }
+.project-body { padding:20px; }
+.project-meta { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+.project-tag { font-size:11px; font-weight:600; padding:2px 8px; border-radius:6px; }
+.project-date { font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; }
+.project-title { font-size:16px; font-weight:700; color:var(--navy); margin-bottom:6px; }
+.project-desc { font-size:13px; color:var(--muted); line-height:1.6; margin-bottom:14px; }
+.project-tools { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; }
+.tool-tag { font-size:11px; font-weight:500; padding:2px 8px; border-radius:6px; background:#F3F4F6; color:var(--muted); font-family:'DM Mono',monospace; }
+.project-link { font-size:12px; font-weight:600; color:var(--blue); text-decoration:none; display:inline-flex; align-items:center; gap:5px; }
+
+/* LIVRABLES */
+.livrables-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.livrable-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; }
+.livrable-icon { font-size:28px; margin-bottom:12px; }
+.livrable-title { font-size:13px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+.livrable-desc { font-size:12px; color:var(--muted); line-height:1.6; margin-bottom:12px; }
+.livrable-status { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; padding:3px 10px; border-radius:20px; }
+.status-done { background:var(--green-light); color:var(--green); }
+.status-pending { background:var(--orange-light); color:var(--orange); }
+
+/* VEILLE */
+.veille-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.veille-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; }
+.veille-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.veille-icon { width:36px; height:36px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; }
+.veille-title { font-size:13px; font-weight:700; }
+.veille-items { display:flex; flex-direction:column; gap:5px; }
+.veille-item { font-size:12px; color:var(--muted); display:flex; align-items:center; gap:6px; }
+.veille-item::before { content:'→'; color:var(--blue); font-weight:700; flex-shrink:0; }
+
+/* SOFT SKILLS */
+.softskills-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.ss-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px; text-align:center; }
+.ss-icon { font-size:28px; margin-bottom:8px; }
+.ss-label { font-size:13px; font-weight:700; color:var(--navy); margin-bottom:4px; }
+.ss-desc { font-size:11px; color:var(--muted); }
+
+/* CONTACT */
+.contact-section { background:var(--navy); padding:60px 40px; text-align:center; }
+.contact-inner { max-width:600px; margin:0 auto; }
+.contact-inner h2 { color:white; margin-bottom:8px; }
+.contact-inner p { color:rgba(255,255,255,0.65); font-size:14px; margin-bottom:28px; }
+.contact-buttons { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+.btn-white { background:white; color:var(--navy); padding:12px 24px; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none; }
+.btn-outline-white { border:1.5px solid rgba(255,255,255,0.3); color:white; padding:12px 24px; border-radius:10px; font-size:14px; font-weight:500; text-decoration:none; }
+
+/* MOCK BADGE */
+.mock-banner { background:#FEF3C7; border:1px solid #F59E0B; padding:10px 20px; text-align:center; font-size:13px; font-weight:600; color:#92400E; }
+
+@media(max-width:800px) {
+  .hero{grid-template-columns:1fr;} .hero-card{display:none;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .projects-grid,.livrables-grid,.veille-grid,.softskills-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="mock-banner">⚠ MOCK-UP — Modèle de portfolio à personnaliser avec vos vraies informations, projets et livrables | Étape 3 — Validation avec le mentor</div>
+
+<nav>
+  <div class="nav-logo"><div class="nav-dot"></div>Nzeutom Lucien</div>
+  <div class="nav-links">
+    <a href="file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#projets">Projets</a>
+    <a href="file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#livrables">Livrables</a>
+    <a href="file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#veille">Veille</a>
+    <a href="file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#profil">Profil</a>
+  </div>
+  <a href="file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#contact" class="nav-cta">Me contacter</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">📊 Portfolio Data Analyst</div>
+    <h1>Bonjour, je suis<br><em>[Prénom NOM]</em></h1>
+    <div class="hero-role">Data Analyst · Chef de Projet Data</div>
+    <p class="hero-desc">Passionné(e) par la transformation des données en décisions stratégiques. Je conçois des tableaux de bord, analyse les besoins métiers et accompagne les équipes vers une culture data. Ce portfolio présente ma progression et mes compétences acquises lors de ma formation.</p>
+    <div class="hero-actions">
+      <a href="file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#livrables" class="btn-primary">📁 Voir mes livrables</a>
+      <a href="file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#projets" class="btn-ghost">🎓 Mes projets</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="card-header">
+      <div class="avatar">👤</div>
+      <div>
+        <div class="card-name">Lucien Nzeutom</div>
+        <div class="card-sub">Data analyst</div>
+      </div>
+    </div>
+    <div class="skills-list">
+      <div class="skill-row"><span class="skill-name">Power BI</span><div class="skill-bar"><div class="skill-fill" style="width:85%;background:#2563EB"></div></div><span class="skill-pct">85%</span></div>
+      <div class="skill-row"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-fill" style="width:90%;background:#059669"></div></div><span class="skill-pct">90%</span></div>
+      <div class="skill-row"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" style="width:70%;background:#7C3AED"></div></div><span class="skill-pct">70%</span></div>
+      <div class="skill-row"><span class="skill-name">Excel</span><div class="skill-bar"><div class="skill-fill" style="width:92%;background:#D97706"></div></div><span class="skill-pct">92%</span></div>
+      <div class="skill-row"><span class="skill-name">Tableau</span><div class="skill-bar"><div class="skill-fill" style="width:75%;background:#2563EB"></div></div><span class="skill-pct">75%</span></div>
+    </div>
+    <div class="card-footer">
+      <span class="pill" style="background:#EFF6FF;color:#2563EB">DataViz</span>
+      <span class="pill" style="background:#ECFDF5;color:#059669">SQL</span>
+      <span class="pill" style="background:#F5F3FF;color:#7C3AED">Python</span>
+      <span class="pill" style="background:#FEF3C7;color:#D97706">Excel</span>
+      <span class="pill" style="background:#FFF1F2;color:#DC2626">Gestion projet</span>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Projets réalisés</div></div>
+    <div class="stat"><div class="stat-num">7</div><div class="stat-label">Livrables produits</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Outils maîtrisés</div></div>
+    <div class="stat"><div class="stat-num">8</div><div class="stat-label">Mois de formation</div></div>
+  </div>
+</div>
+
+<!-- PROJETS -->
+<section id="projets">
+  <div class="section-tag">Parcours Formation</div>
+  <h2>Mes Projets de Formation</h2>
+  <p class="section-desc">Chaque projet m'a permis de développer des compétences concrètes et de produire des livrables professionnels. Cliquez sur un projet pour accéder aux livrables.</p>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">🎓</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-tag" style="background:#EFF6FF;color:#2563EB">Projet 1</span>
+          <span class="project-date">Mois 1-2</span>
+        </div>
+        <div class="project-title">Démarrez votre formation de...</div>
+        <div class="project-desc">Description du premier projet de la formation. Compétences acquises, difficultés rencontrées, représentation du métier à ce stade.</div>
+        <div class="project-tools"><span class="tool-tag">Excel</span><span class="tool-tag">SQL</span><span class="tool-tag">Power BI</span></div>
+        <a href="file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#" class="project-link">📎 Voir les livrables →</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5)">📊</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-tag" style="background:#ECFDF5;color:#059669">Projet 2</span>
+          <span class="project-date">Mois 3-4</span>
+        </div>
+        <div class="project-title">[Titre du Projet 2]</div>
+        <div class="project-desc">Description du deuxième projet. Nouvelles compétences développées, montée en autonomie, soft skills travaillés.</div>
+        <div class="project-tools"><span class="tool-tag">Python</span><span class="tool-tag">Pandas</span><span class="tool-tag">Matplotlib</span></div>
+        <a href="file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#" class="project-link">📎 Voir les livrables →</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-thumb" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE)">🚀</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-tag" style="background:#F5F3FF;color:#7C3AED">Projet 3</span>
+          <span class="project-date">Mois 5-6</span>
+        </div>
+        <div class="project-title">[Titre du Projet 3]</div>
+        <div class="project-desc">Description du troisième projet. Niveau de maîtrise atteint, projets complexes, posture professionnelle renforcée.</div>
+        <div class="project-tools"><span class="tool-tag">Tableau</span><span class="tool-tag">SQL</span><span class="tool-tool-tag">Gestion projet</span></div>
+        <a href="file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#" class="project-link">📎 Voir les livrables →</a>
+      </div>
+    </div>
+    <div class="project-card" style="border:2px dashed #E5E7EB">
+      <div class="project-thumb" style="background:#FAFBFC">✈</div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-tag" style="background:#FEF3C7;color:#D97706">Projet Portfolio</span>
+          <span class="project-date">Mois 7-8</span>
+        </div>
+        <div class="project-title">Portfolio Aéroworld — Soutenance</div>
+        <div class="project-desc">Projet final : démonstration de toutes les compétences acquises via des livrables professionnels destinés au recrutement chez Aéroworld.</div>
+        <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">Word</span><span class="tool-tag">Excel</span><span class="tool-tag">Miro</span></div>
+        <a href="file:///C:/Users/nzeut/Downloads/projet%2013/file/portfolio_mockup.html#livrables" class="project-link">📎 Voir tous les livrables →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVRABLES PORTFOLIO -->
+<section id="livrables" style="background:var(--bg);padding:60px 0">
+<div style="max-width:1100px;margin:0 auto;padding:0 40px">
+  <div class="section-tag">Étapes 2, 3 &amp; 4</div>
+  <h2>Livrables du Projet Portfolio</h2>
+  <p class="section-desc">7 livrables professionnels produits dans le cadre de la candidature chez Aéroworld Corporation.</p>
+  <div class="livrables-grid">
+    <div class="livrable-card">
+      <div class="livrable-icon">🗺️</div>
+      <div class="livrable-title">Carte Mentale Portfolio</div>
+      <div class="livrable-desc">Mind map structurant le profil, les projets, les compétences et les livrables. Créée sur Miro.</div>
+      <span class="livrable-status status-done">✓ Réalisé</span>
+    </div>
+    <div class="livrable-card">
+      <div class="livrable-icon">📄</div>
+      <div class="livrable-title">Rapport Analyse Besoins</div>
+      <div class="livrable-desc">Analyse approfondie des besoins métiers d'Aéroworld avec recommandations stratégiques et plan d'action.</div>
+      <span class="livrable-status status-done">✓ Réalisé</span>
+    </div>
+    <div class="livrable-card">
+      <div class="livrable-icon">📋</div>
+      <div class="livrable-title">Cahier des Charges Fonctionnel</div>
+      <div class="livrable-desc">Cadrage complet du projet portfolio : objectifs, périmètre, livrables, planning et critères qualité.</div>
+      <span class="livrable-status status-done">✓ Réalisé</span>
+    </div>
+    <div class="livrable-card">
+      <div class="livrable-icon">📊</div>
+      <div class="livrable-title">Diagramme de Gantt</div>
+      <div class="livrable-desc">Planning détaillé du projet portfolio sur 18 jours avec 7 phases, jalons et indicateurs de priorité.</div>
+      <span class="livrable-status status-done">✓ Réalisé</span>
+    </div>
+    <div class="livrable-card">
+      <div class="livrable-icon">🖥️</div>
+      <div class="livrable-title">Dashboard Aéroworld</div>
+      <div class="livrable-desc">Tableau de bord interactif avec KPIs maintenance, graphiques d'évolution et filtres dynamiques.</div>
+      <span class="livrable-status status-done">✓ Réalisé</span>
+    </div>
+    <div class="livrable-card">
+      <div class="livrable-icon">📝</div>
+      <div class="livrable-title">Procédure Documentation</div>
+      <div class="livrable-desc">Guide étape par étape pour créer un graphique data de qualité professionnelle avec Power BI.</div>
+      <span class="livrable-status status-done">✓ Réalisé</span>
+    </div>
+    <div class="livrable-card">
+      <div class="livrable-icon">🎥</div>
+      <div class="livrable-title">Vidéo de Formation</div>
+      <div class="livrable-desc">Formation de 8 min sur Power BI Desktop — création d'un tableau de bord étape par étape.</div>
+      <span class="livrable-status status-pending">⏳ À enregistrer</span>
+    </div>
+    <div class="livrable-card">
+      <div class="livrable-icon">🔍</div>
+      <div class="livrable-title">Veille Métier</div>
+      <div class="livrable-desc">Synthèse des tendances 2025-2026 : outils émergents, méthodes, tests personnels d'outils.</div>
+      <span class="livrable-status status-done">✓ Réalisé</span>
+    </div>
+    <div class="livrable-card" style="background:linear-gradient(135deg,#EFF6FF,#F0F9FF);border-color:#BFDBFE">
+      <div class="livrable-icon">🎤</div>
+      <div class="livrable-title">Soutenance Orale</div>
+      <div class="livrable-desc">Présentation orale du portfolio devant Aéroworld — mise en avant de la posture consultant.</div>
+      <span class="livrable-status" style="background:#EFF6FF;color:#2563EB">📅 Étape 5</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- VEILLE -->
+<section id="veille">
+  <div class="section-tag">Veille &amp; Technologie</div>
+  <h2>Veille Métier &amp; Technologique</h2>
+  <p class="section-desc">Suivi actif des tendances data pour rester à la pointe du domaine.</p>
+  <div class="veille-grid">
+    <div class="veille-card">
+      <div class="veille-head">
+        <div class="veille-icon" style="background:#EFF6FF">📈</div>
+        <div class="veille-title" style="color:#2563EB">Tendances 2025-2026</div>
+      </div>
+      <div class="veille-items">
+        <div class="veille-item">IA générative dans Power BI (Copilot)</div>
+        <div class="veille-item">Modern Data Stack (dbt, Snowflake)</div>
+        <div class="veille-item">DataOps &amp; CI/CD pipelines data</div>
+        <div class="veille-item">Data Mesh &amp; gouvernance décentralisée</div>
+      </div>
+    </div>
+    <div class="veille-card">
+      <div class="veille-head">
+        <div class="veille-icon" style="background:#ECFDF5">🔧</div>
+        <div class="veille-title" style="color:#059669">Tests d'Outils</div>
+      </div>
+      <div class="veille-items">
+        <div class="veille-item">dbt Core — transformations SQL versionées</div>
+        <div class="veille-item">Apache Superset — dataviz open source</div>
+        <div class="veille-item">Hex — notebooks collaboratifs</div>
+        <div class="veille-item">Sigma Computing — dataviz cloud</div>
+      </div>
+    </div>
+    <div class="veille-card">
+      <div class="veille-head">
+        <div class="veille-icon" style="background:#F5F3FF">📚</div>
+        <div class="veille-title" style="color:#7C3AED">Ressources Suivies</div>
+      </div>
+      <div class="veille-items">
+        <div class="veille-item">Towards Data Science · DataTalks.Club</div>
+        <div class="veille-item">Data Engineering Podcast</div>
+        <div class="veille-item">Kaggle competitions &amp; courses</div>
+        <div class="veille-item">Newsletters O'Reilly Data &amp; AI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOFT SKILLS -->
+<section id="profil" style="background:var(--bg)">
+  <div style="max-width:1100px;margin:0 auto;padding:60px 40px">
+  <div class="section-tag">Posture Professionnelle</div>
+  <h2>Soft Skills &amp; Posture Consultant</h2>
+  <p class="section-desc">Les compétences humaines au cœur de la posture de consultant Data Analyst.</p>
+  <div class="softskills-grid">
+    <div class="ss-card">
+      <div class="ss-icon">🎯</div>
+      <div class="ss-label">Posture Conseil</div>
+      <div class="ss-desc">Challenger les besoins exprimés, recommander au-delà de la demande, se positionner comme expert</div>
+    </div>
+    <div class="ss-card">
+      <div class="ss-icon">💬</div>
+      <div class="ss-label">Communication</div>
+      <div class="ss-desc">Vulgariser les concepts techniques, adapter le discours à chaque public, oral comme écrit</div>
+    </div>
+    <div class="ss-card">
+      <div class="ss-icon">📐</div>
+      <div class="ss-label">Rigueur</div>
+      <div class="ss-desc">Qualité des livrables, respect des délais, documentation précise et traçable</div>
+    </div>
+    <div class="ss-card">
+      <div class="ss-icon">🤝</div>
+      <div class="ss-label">Pédagogie</div>
+      <div class="ss-desc">Accompagner les équipes, former les utilisateurs, rassurer sur les outils data</div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2>Intéressé(e) par mon profil ?</h2>
+    <p>Je suis disponible pour un entretien et la présentation orale de mon portfolio. N'hésitez pas à me contacter pour échanger sur votre projet data.</p>
+    <div class="contact-buttons">
+      <a href="mailto:votre@email.com" class="btn-white">✉ M'envoyer un email</a>
+      <a href="https://linkedin.com/" class="btn-outline-white">💼 Mon LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+
+
+</body></html>

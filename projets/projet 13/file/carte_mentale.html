@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carte Mentale Portfolio — Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0D1117;
+  --surface: #161B22;
+  --border: #21262D;
+  --text: #E6EDF3;
+  --muted: #8B949E;
+  --blue: #58A6FF;
+  --blue-dim: #1C2E4A;
+  --green: #3FB950;
+  --green-dim: #122D20;
+  --orange: #F0883E;
+  --orange-dim: #3D2114;
+  --purple: #BC8CFF;
+  --purple-dim: #2B1F45;
+  --red: #FF7B72;
+  --red-dim: #3D1A19;
+  --teal: #39D353;
+  --yellow: #E3B341;
+  --yellow-dim: #342B00;
+}
+
+html, body {
+  width: 100%; min-height: 100vh;
+  background: var(--bg);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* HEADER */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(13,17,23,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 32px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.header-brand { display: flex; align-items: center; gap: 12px; }
+.logo-mark { width: 32px; height: 32px; background: linear-gradient(135deg, var(--blue), var(--purple)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.brand-name { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; }
+.brand-sub { font-size: 11px; color: var(--muted); }
+.header-badges { display: flex; gap: 8px; }
+.hbadge { font-size: 11px; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); color: var(--muted); }
+
+/* HERO */
+.hero {
+  text-align: center; padding: 56px 32px 32px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(88,166,255,0.08) 0%, transparent 60%);
+}
+.hero-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); background: var(--blue-dim); padding: 4px 14px; border-radius: 20px; border: 1px solid rgba(88,166,255,0.3); margin-bottom: 20px; }
+.hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 12px; }
+.hero h1 span { background: linear-gradient(90deg, var(--blue), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { color: var(--muted); font-size: 15px; max-width: 600px; margin: 0 auto 32px; line-height: 1.7; }
+.hero-meta { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.meta-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+.meta-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+/* MIND MAP SVG ZONE */
+.mindmap-section { padding: 20px 32px; }
+.section-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.mindmap-container {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+  overflow: auto;
+  min-height: 500px;
+  position: relative;
+}
+
+svg#mindmap { width: 100%; min-height: 480px; display: block; }
+
+/* CARDS GRID */
+.branches-section { padding: 20px 32px 40px; }
+.branches-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+
+.branch-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.branch-card:hover { transform: translateY(-2px); }
+
+.branch-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.branch-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.branch-label { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; }
+.branch-sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+
+.sub-items { display: flex; flex-direction: column; gap: 6px; }
+.sub-item { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--muted); line-height: 1.5; }
+.sub-bullet { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.sub-tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 1px 7px; border-radius: 8px; margin-left: 4px; vertical-align: middle; }
+
+/* INSTRUCTIONS */
+.instructions { margin: 0 32px 40px; background: var(--surface); border: 1px solid var(--yellow-dim); border-left: 3px solid var(--yellow); border-radius: 12px; padding: 20px 24px; }
+.inst-title { font-size: 13px; font-weight: 700; color: var(--yellow); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.inst-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.inst-step { display: flex; align-items: flex-start; gap: 10px; }
+.inst-num { width: 22px; height: 22px; background: var(--yellow-dim); border: 1px solid var(--yellow); color: var(--yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.inst-text { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.inst-text strong { color: var(--text); }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-brand">
+    <div class="logo-mark">✈</div>
+    <div>
+      <div class="brand-name">Portfolio Data Analyst</div>
+      <div class="brand-sub">Carte Mentale — Candidature Aéroworld</div>
+    </div>
+  </div>
+  <div class="header-badges">
+    <span class="hbadge">Miro-ready</span>
+    <span class="hbadge">Soutenance 2026</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-tag">Carte Mentale — Étape 1</div>
+  <h1>Profil <span>[Prénom NOM]</span><br>Portfolio de Professionnel Data</h1>
+  <p>Voici la structure complète de ta carte mentale à reproduire dans Miro. Chaque branche correspond à une section de ton portfolio. Utilise les couleurs ci-dessous pour recréer la carte visuellement.</p>
+  <div class="hero-meta">
+    <div class="meta-item"><div class="meta-dot" style="background:#58A6FF"></div>Projets de formation</div>
+    <div class="meta-item"><div class="meta-dot" style="background:#3FB950"></div>Compétences & Outils</div>
+    <div class="meta-item"><div class="meta-dot" style="background:#F0883E"></div>Livrables Portfolio</div>
+    <div class="meta-item"><div class="meta-dot" style="background:#BC8CFF"></div>Veille & Soft skills</div>
+  </div>
+</div>
+
+<!-- INSTRUCTIONS MIRO -->
+<div class="instructions">
+  <div class="inst-title">💡 Comment utiliser cette carte pour Miro</div>
+  <div class="inst-steps">
+    <div class="inst-step"><div class="inst-num">1</div><div class="inst-text">Ouvre Miro → Nouveau tableau → Template <strong>"Mind Map"</strong></div></div>
+    <div class="inst-step"><div class="inst-num">2</div><div class="inst-text">Place un post-it central : <strong>"Profil [Prénom NOM] — Portfolio de professionnel de la data"</strong></div></div>
+    <div class="inst-step"><div class="inst-num">3</div><div class="inst-text">Crée <strong>7 branches principales</strong> autour (une par section ci-dessous) avec les couleurs indiquées</div></div>
+    <div class="inst-step"><div class="inst-num">4</div><div class="inst-text">Pour chaque branche, ajoute les <strong>sous-éléments en post-its jaunes</strong> (conseils) et en boîtes blanches (contenu)</div></div>
+    <div class="inst-step"><div class="inst-num">5</div><div class="inst-text">Insère les <strong>liens vers tes livrables</strong> (Google Drive, Loom) sur chaque item correspondant</div></div>
+    <div class="inst-step"><div class="inst-num">6</div><div class="inst-text">Ajoute des <strong>images et screenshots</strong> de tes tableaux de bord pour rendre la carte visuelle</div></div>
+  </div>
+</div>
+
+<!-- MIND MAP VISUEL SVG -->
+<div class="mindmap-section">
+  <div class="section-title">Aperçu visuel de la structure</div>
+  <div class="mindmap-container">
+    <svg id="mindmap" viewBox="0 0 1000 580" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <circle cx="3" cy="3" r="1.5" fill="#444" />
+        </marker>
+      </defs>
+
+      <!-- CENTER NODE -->
+      <rect x="390" y="250" width="220" height="80" rx="16" fill="#1C2E4A" stroke="#58A6FF" stroke-width="2"/>
+      <text x="500" y="282" text-anchor="middle" font-family="Syne" font-size="13" font-weight="800" fill="#58A6FF">Profil [Prénom NOM]</text>
+      <text x="500" y="300" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#8B949E">Portfolio de Professionnel</text>
+      <text x="500" y="316" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#8B949E">de la Data</text>
+
+      <!-- BRANCH 1: Projet 1 (top-left) -->
+      <line x1="420" y1="255" x2="230" y2="140" stroke="#58A6FF" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+      <rect x="100" y="100" width="200" height="70" rx="12" fill="#1C2E4A" stroke="#58A6FF" stroke-width="1.5"/>
+      <text x="200" y="125" text-anchor="middle" font-family="Syne" font-size="11" font-weight="700" fill="#58A6FF">🎓 Projet 1</text>
+      <text x="200" y="143" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Démarrez votre formation de...</text>
+      <text x="200" y="158" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Lien livrable · Compétences · Soft skills</text>
+
+      <!-- BRANCH 2: Projet 2 (left) -->
+      <line x1="390" y1="290" x2="220" y2="290" stroke="#58A6FF" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+      <rect x="80" y="258" width="200" height="64" rx="12" fill="#1C2E4A" stroke="#58A6FF" stroke-width="1.5"/>
+      <text x="180" y="281" text-anchor="middle" font-family="Syne" font-size="11" font-weight="700" fill="#58A6FF">🎓 Projet 2</text>
+      <text x="180" y="298" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">[Titre du projet]</text>
+      <text x="180" y="313" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Livrables · Compétences P2 · Soft skills</text>
+
+      <!-- BRANCH 3: Projet 3 (bottom-left) -->
+      <line x1="420" y1="320" x2="230" y2="420" stroke="#58A6FF" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+      <rect x="100" y="395" width="180" height="56" rx="12" fill="#122D20" stroke="#3FB950" stroke-width="1.5"/>
+      <text x="190" y="417" text-anchor="middle" font-family="Syne" font-size="11" font-weight="700" fill="#3FB950">🎓 Projet 3</text>
+      <text x="190" y="434" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Suite des projets formation</text>
+      <text x="190" y="449" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Même structure que P1 & P2</text>
+
+      <!-- BRANCH 4: Compétences (top) -->
+      <line x1="500" y1="250" x2="500" y2="130" stroke="#3FB950" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+      <rect x="380" y="60" width="240" height="65" rx="12" fill="#122D20" stroke="#3FB950" stroke-width="1.5"/>
+      <text x="500" y="83" text-anchor="middle" font-family="Syne" font-size="11" font-weight="700" fill="#3FB950">🛠 Compétences & Outils</text>
+      <text x="500" y="100" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Python · SQL · Power BI · Tableau · Excel</text>
+      <text x="500" y="116" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Niveau par outil · Axes d'amélioration</text>
+
+      <!-- BRANCH 5: Livrables Portfolio (top-right) -->
+      <line x1="580" y1="260" x2="720" y2="140" stroke="#F0883E" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+      <rect x="690" y="85" width="220" height="100" rx="12" fill="#3D2114" stroke="#F0883E" stroke-width="1.5"/>
+      <text x="800" y="108" text-anchor="middle" font-family="Syne" font-size="11" font-weight="700" fill="#F0883E">📁 Livrables Portfolio</text>
+      <text x="800" y="126" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">📄 Analyse besoins métiers</text>
+      <text x="800" y="141" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">📄 Cahier des charges fonctionnel</text>
+      <text x="800" y="156" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">📊 Diagramme de Gantt</text>
+      <text x="800" y="171" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">🎥 Vidéo formation Power BI</text>
+
+      <!-- BRANCH 6: Tableaux de bord (right) -->
+      <line x1="610" y1="290" x2="770" y2="290" stroke="#F0883E" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+      <rect x="760" y="258" width="200" height="64" rx="12" fill="#3D2114" stroke="#F0883E" stroke-width="1.5"/>
+      <text x="860" y="281" text-anchor="middle" font-family="Syne" font-size="11" font-weight="700" fill="#F0883E">📊 Tableaux de Bord</text>
+      <text x="860" y="298" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Mock-up dashboard Aéroworld</text>
+      <text x="860" y="313" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Documentation · Procédures</text>
+
+      <!-- BRANCH 7: Veille & Soft skills (bottom-right) -->
+      <line x1="580" y1="320" x2="720" y2="420" stroke="#BC8CFF" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+      <rect x="690" y="390" width="220" height="80" rx="12" fill="#2B1F45" stroke="#BC8CFF" stroke-width="1.5"/>
+      <text x="800" y="413" text-anchor="middle" font-family="Syne" font-size="11" font-weight="700" fill="#BC8CFF">🔍 Veille & Soft Skills</text>
+      <text x="800" y="430" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Veille métier · Tests d'outils</text>
+      <text x="800" y="446" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Posture consultant · Communication</text>
+      <text x="800" y="461" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Adaptabilité · Pédagogie</text>
+
+      <!-- BRANCH 8: Posture Pro (bottom) -->
+      <line x1="500" y1="330" x2="500" y2="430" stroke="#BC8CFF" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+      <rect x="370" y="430" width="260" height="55" rx="12" fill="#2B1F45" stroke="#BC8CFF" stroke-width="1.5"/>
+      <text x="500" y="453" text-anchor="middle" font-family="Syne" font-size="11" font-weight="700" fill="#BC8CFF">💼 Posture Professionnelle</text>
+      <text x="500" y="470" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Consultant Data · Soutenance orale</text>
+      <text x="500" y="485" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#8B949E">Option : présentation en anglais</text>
+
+      <!-- Legend -->
+      <rect x="20" y="510" width="8" height="8" rx="2" fill="#58A6FF"/>
+      <text x="34" y="519" font-family="DM Sans" font-size="10" fill="#8B949E">Projets formation</text>
+      <rect x="150" y="510" width="8" height="8" rx="2" fill="#3FB950"/>
+      <text x="164" y="519" font-family="DM Sans" font-size="10" fill="#8B949E">Compétences</text>
+      <rect x="260" y="510" width="8" height="8" rx="2" fill="#F0883E"/>
+      <text x="274" y="519" font-family="DM Sans" font-size="10" fill="#8B949E">Livrables & Dashboards</text>
+      <rect x="420" y="510" width="8" height="8" rx="2" fill="#BC8CFF"/>
+      <text x="434" y="519" font-family="DM Sans" font-size="10" fill="#8B949E">Veille & Posture</text>
+    </svg>
+  </div>
+</div>
+
+<!-- DETAIL CARDS -->
+<div class="branches-section">
+  <div class="section-title">Contenu détaillé de chaque branche</div>
+  <div class="branches-grid">
+
+    <!-- Projet 1 -->
+    <div class="branch-card" style="border-color:#1C2E4A">
+      <div class="branch-header">
+        <div class="branch-icon" style="background:#1C2E4A">🎓</div>
+        <div>
+          <div class="branch-label" style="color:#58A6FF">Projet 1 — Démarrez votre formation</div>
+          <div class="branch-sub">Premier projet de la formation</div>
+        </div>
+      </div>
+      <div class="sub-items">
+        <div class="sub-item"><div class="sub-bullet" style="background:#58A6FF"></div><span>Compléter le nom complet du projet de formation</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#58A6FF"></div><span>Créer un lien vers les livrables du P1 (Google Drive)</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#58A6FF"></div><span>Compétences acquises : outils maîtrisés, niveau, difficultés rencontrées</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#58A6FF"></div><span>Soft skills travaillés pendant ce projet</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#8B949E"></div><span style="color:#6e7681">Post-it jaune : ta représentation du métier en début de formation</span></div>
+      </div>
+    </div>
+
+    <!-- Projet 2 -->
+    <div class="branch-card" style="border-color:#1C2E4A">
+      <div class="branch-header">
+        <div class="branch-icon" style="background:#1C2E4A">🎓</div>
+        <div>
+          <div class="branch-label" style="color:#58A6FF">Projet 2 — [Titre du projet]</div>
+          <div class="branch-sub">Même structure que le Projet 1</div>
+        </div>
+      </div>
+      <div class="sub-items">
+        <div class="sub-item"><div class="sub-bullet" style="background:#58A6FF"></div><span>Nom du projet + lien vers les livrables</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#58A6FF"></div><span>Compétences du Projet 2 (section dédiée)</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#58A6FF"></div><span>Soft skills identifiés sur ce projet</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#3FB950"></div><span>Évolution vs Projet 1 : progrès, nouvelles compétences</span></div>
+      </div>
+    </div>
+
+    <!-- Projet 3 -->
+    <div class="branch-card" style="border-color:#122D20">
+      <div class="branch-header">
+        <div class="branch-icon" style="background:#122D20">🎓</div>
+        <div>
+          <div class="branch-label" style="color:#3FB950">Projet 3 + autres projets</div>
+          <div class="branch-sub">Continuer sur le modèle du P1</div>
+        </div>
+      </div>
+      <div class="sub-items">
+        <div class="sub-item"><div class="sub-bullet" style="background:#3FB950"></div><span>Répéter la même structure pour chaque projet de formation</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#3FB950"></div><span>Ajouter et compléter au fur et à mesure de ta progression</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#3FB950"></div><span>Montrer la progression dans le temps</span></div>
+      </div>
+    </div>
+
+    <!-- Compétences -->
+    <div class="branch-card" style="border-color:#122D20">
+      <div class="branch-header">
+        <div class="branch-icon" style="background:#122D20">🛠</div>
+        <div>
+          <div class="branch-label" style="color:#3FB950">Compétences & Outils</div>
+          <div class="branch-sub">Tableau de maîtrise technique</div>
+        </div>
+      </div>
+      <div class="sub-items">
+        <div class="sub-item"><div class="sub-bullet" style="background:#3FB950"></div><span>Excel, SQL, Tableau, Python, Power BI, etc. avec niveau (débutant → expert)</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#3FB950"></div><span>Compétences maîtrisées ✅ vs en cours d'apprentissage 🔄</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#3FB950"></div><span>Axes d'amélioration identifiés et plan d'action</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#3FB950"></div><span>Copier le graphique compétences du dashboard HTML fourni !</span></div>
+      </div>
+    </div>
+
+    <!-- Livrables Portfolio -->
+    <div class="branch-card" style="border-color:#3D2114">
+      <div class="branch-header">
+        <div class="branch-icon" style="background:#3D2114">📁</div>
+        <div>
+          <div class="branch-label" style="color:#F0883E">Livrables Organisationnels</div>
+          <div class="branch-sub">Étape 2 de la validation</div>
+        </div>
+      </div>
+      <div class="sub-items">
+        <div class="sub-item"><div class="sub-bullet" style="background:#F0883E"></div><span>📄 Rapport d'analyse des besoins métiers <span class="sub-tag" style="background:#3D2114;color:#F0883E">✅ Fait</span></span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#F0883E"></div><span>📄 Cahier des charges fonctionnel <span class="sub-tag" style="background:#3D2114;color:#F0883E">✅ Fait</span></span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#F0883E"></div><span>📊 Diagramme de Gantt <span class="sub-tag" style="background:#3D2114;color:#F0883E">✅ Fait</span></span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#8B949E"></div><span>→ Insérer les liens vers chaque document dans Miro</span></div>
+      </div>
+    </div>
+
+    <!-- Tableaux de bord -->
+    <div class="branch-card" style="border-color:#3D2114">
+      <div class="branch-header">
+        <div class="branch-icon" style="background:#3D2114">📊</div>
+        <div>
+          <div class="branch-label" style="color:#F0883E">Tableaux de Bord</div>
+          <div class="branch-sub">Étape 3 — Mock-up à valider</div>
+        </div>
+      </div>
+      <div class="sub-items">
+        <div class="sub-item"><div class="sub-bullet" style="background:#F0883E"></div><span>Mock-up dashboard Aéroworld (HTML fourni) <span class="sub-tag" style="background:#3D2114;color:#F0883E">✅ Fait</span></span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#F0883E"></div><span>📄 Procédure de création d'un graphique de qualité <span class="sub-tag" style="background:#3D2114;color:#F0883E">✅ Fait</span></span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#8B949E"></div><span>→ Insérer des screenshots du dashboard dans Miro</span></div>
+      </div>
+    </div>
+
+    <!-- Veille Métier -->
+    <div class="branch-card" style="border-color:#2B1F45">
+      <div class="branch-header">
+        <div class="branch-icon" style="background:#2B1F45">🔍</div>
+        <div>
+          <div class="branch-label" style="color:#BC8CFF">Veille Métier & Technologique</div>
+          <div class="branch-sub">Tendances 2025-2026</div>
+        </div>
+      </div>
+      <div class="sub-items">
+        <div class="sub-item"><div class="sub-bullet" style="background:#BC8CFF"></div><span>Veille métier complète (document fourni) <span class="sub-tag" style="background:#2B1F45;color:#BC8CFF">✅ Fait</span></span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#BC8CFF"></div><span>Tests d'outils : dbt, Superset, Hex → résultats personnels</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#BC8CFF"></div><span>Sources : newsletters, podcasts, certifications suivies</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#BC8CFF"></div><span>Axes d'amélioration personnels identifiés</span></div>
+      </div>
+    </div>
+
+    <!-- Soft skills & Posture -->
+    <div class="branch-card" style="border-color:#2B1F45">
+      <div class="branch-header">
+        <div class="branch-icon" style="background:#2B1F45">💼</div>
+        <div>
+          <div class="branch-label" style="color:#BC8CFF">Posture Professionnelle & Soft Skills</div>
+          <div class="branch-sub">Incarnation du consultant data</div>
+        </div>
+      </div>
+      <div class="sub-items">
+        <div class="sub-item"><div class="sub-bullet" style="background:#BC8CFF"></div><span>Communication orale & écrite — capacité à vulgariser</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#BC8CFF"></div><span>Rigueur, organisation, gestion de projet</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#BC8CFF"></div><span>Posture conseil : challenger les besoins, recommander</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#BC8CFF"></div><span>Pédagogie — accompagnement des équipes</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#BC8CFF"></div><span>Soutenance orale (option anglais) — Étape 5</span></div>
+      </div>
+    </div>
+
+    <!-- Vidéo Formation -->
+    <div class="branch-card" style="border-color:#342B00">
+      <div class="branch-header">
+        <div class="branch-icon" style="background:#342B00">🎥</div>
+        <div>
+          <div class="branch-label" style="color:#E3B341">Vidéo de Formation</div>
+          <div class="branch-sub">Étape 4 — Livrable client</div>
+        </div>
+      </div>
+      <div class="sub-items">
+        <div class="sub-item"><div class="sub-bullet" style="background:#E3B341"></div><span>Guide complet de réalisation fourni (script minuté) <span class="sub-tag" style="background:#342B00;color:#E3B341">✅ Guide fait</span></span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#E3B341"></div><span>Outil : Power BI Desktop (gratuit) ou Tableau Software</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#E3B341"></div><span>Enregistrement : Loom (recommandé) — 8 min minimum</span></div>
+        <div class="sub-item"><div class="sub-bullet" style="background:#E3B341"></div><span>⚠ Lien Loom à insérer ici après enregistrement</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
