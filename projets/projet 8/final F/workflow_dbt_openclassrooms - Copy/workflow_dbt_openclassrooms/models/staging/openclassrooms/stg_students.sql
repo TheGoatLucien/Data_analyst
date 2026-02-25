@@ -4,16 +4,18 @@
 -- Description:
 --   Ce modèle transforme les données brutes de la table STUDENTS en données
 --   propres et normalisées, prêtes pour l'analyse.
-
+--
 -- Transformations appliquées:
 --   1. Normalisation des genres (M à Homme, F à Femme, vide à Non renseigné)
 --   2. Nettoyage des valeurs textuelles (trim, uppercase)
 --   3. Filtrage des années valides (2022-2025)
 --   4. Dédoublonnage des USER_ID (garde la ligne la plus récente)
-
+--
 -- Input:  OC_DATA_PROJECT.RAW.STUDENTS (table source brute)
 -- Output: DBT_NLUCIEN.stg_students (table staging nettoyée)
-
+--
+-- Auteur: Nzeutom Lucien
+-- Date: Janvier 2026
 
 
 {{
@@ -117,6 +119,26 @@ cleaned as (
 
 select * from cleaned
 
+-- NOTES IMPORTANTES
 
+
+-- 1. CONFORMITÉ RGPD:
+--    - Les USER_ID sont pseudonymisés dans la source
+--    - Aucune donnée personnelle identifiable (nom, email, adresse)
+--    - Les données agrégées ne permettent pas l'identification
+
+-- 2. QUALITÉ DES DONNÉES:
+--    - Tests d'unicité et de non-nullité appliqués sur user_id
+--    - Amélioration significative du taux de renseignement du genre:
+--      * 2022: 58% renseigné (42% "Non renseigné")
+--      * 2025: 93% renseigné (7% "Non renseigné")
+
+-- 3. VOLUMÉTRIE:
+--    - Après dédoublonnage: ~4 011 étudiants uniques
+--    - Période: 2022-2025 (4 ans)
+
+-- 4. DÉPENDANCES:
+--    - Source: {{ source('openclassrooms', 'students') }}
+--    - Utilisé par: fct_students_demo, fct_students_by_region, fct_students_by_age
 
 

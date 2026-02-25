@@ -6,7 +6,7 @@ name: 'oc_data_project'
 version: '1.0.0'
 config-version: 2
 
-# Profil de connexion (défini dans dbt Cloud )
+# Profil de connexion (défini dans dbt Cloud ou profiles.yml en local)
 profile: 'default'
 
 # Chemins des dossiers du projet

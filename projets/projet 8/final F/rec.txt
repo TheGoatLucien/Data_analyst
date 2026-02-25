@@ -1,0 +1,61 @@
+lire les recommandatins en bas des fichiers sql
+fct_comparison oc_insee
+-- INTERPRÉTATION DES RÉSULTATS
+
+--
+-- 1. ÉCARTS DE GENRE (diff_pct_hommes, diff_pct_femmes):
+--
+--    Valeurs attendues pour les parcours Data:
+--    - diff_pct_hommes: +10 à +15 points
+--     Veut dire que les hommes sont surreprésentés chez OC vs population générale
+--     Veut dire que normal pour les métiers tech encore majoritairement masculins
+--
+--    - diff_pct_femmes: -10 à -15 points
+--     Veut dire que les femmes sont sous-représentées chez OC vs population générale
+--     Veut dire que aligné avec la tendance du secteur tech
+--
+--    Évolution positive attendue:
+--    - Réduction progressive des écarts grâce aux efforts de féminisation
+--
+-- 2. PÉNÉTRATION RÉGIONALE (etudiants_pour_100k_hab):
+--
+--    Valeurs typiques:
+--    - Île-de-France: 12-15 étudiants / 100k hab (forte pénétration)
+--    - Grandes métropoles: 8-12 / 100k hab (Lyon, Toulouse, Marseille)
+--    - Régions moyennes: 4-8 / 100k hab
+--    - Régions rurales: 2-4 / 100k hab (faible pénétration)
+--
+--    Interprétation:
+--    - Valeur élevée: forte notoriété/accessibilité OC dans la région
+--    - Valeur faible: opportunité de développement commercial
+--
+-- 3. ANALYSE STRATÉGIQUE:
+--
+--    Régions à cibler en priorité:
+--    - Population élevée + pénétration faible = fort potentiel
+--    - Exemples: métropoles de province sous-pénétrées
+--
+--    Régions saturées:
+--    - Pénétration très élevée = marché mature
+--    - Focus sur fidélisation plutôt que acquisition
+--
+
+-- LIMITES ET PRÉCAUTIONS
+
+--
+-- 1. DONNÉES INSEE:
+--    - Source: Recensement 2023 (ou année la plus récente disponible)
+--    - Décalage temporel possible avec données OC (2022-2025)
+--
+-- 2. COMPARABILITÉ:
+--    - La population générale inclut tous les âges
+--    - Les étudiants OC sont concentrés sur 25-45 ans
+--    - L'écart de genre doit être interprété avec cette limite
+--
+-- 3. CAUSALITÉ:
+--    - Une faible pénétration peut avoir plusieurs causes:
+--      * Faible notoriété
+--      * Concurrence locale forte
+--      * Profil démographique différent
+--      * Offres d'emploi data limitées dans la région
+--

@@ -102,7 +102,7 @@ models:
       Table staging contenant les données étudiants nettoyées et normalisées.
       
       Transformations appliquées:
-      - Normalisation des genres (M - Homme, F -Femme, vide - Non renseigné)
+      - Normalisation des genres (M → Homme, F → Femme, vide → Non renseigné)
       - Nettoyage des valeurs textuelles (trim, uppercase)
       - Filtrage des années valides (2022-2025)
       - Dédoublonnage des USER_ID (garde la ligne la plus récente)

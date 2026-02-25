@@ -4,19 +4,22 @@
 -- Description:
 --   Ce modèle agrège les données étudiants par région pour identifier
 --   les territoires avec le plus d'étudiants Data et analyser les disparités.
+--
 -- Métriques calculées:
 --   - Nombre total d'étudiants par région
 --   - Répartition par genre par région
 --   - Répartition par année par région
-
+--
 -- Input:  DBT_NLUCIEN.stg_students
 -- Output: DBT_NLUCIEN.fct_students_by_region
-
+--
 -- Utilisation:
 --   - Cartes géographiques
 --   - Top 10 des régions
 --   - Stratégie de déploiement territorial
-
+--
+-- Auteur: Nzeutom Lucien
+-- Date: Janvier 2026
 
 
 {{
@@ -62,4 +65,23 @@ demographics_by_region as (
 select * from demographics_by_region
 -- Tri par effectif décroissant pour faciliter l'identification du top régions
 order by total_etudiants desc
+
+
+-- INSIGHTS ATTENDUS
+
+--
+-- 1. CONCENTRATION GÉOGRAPHIQUE:
+--    - Île-de-France devrait représenter ~30-35% des étudiants
+--    - Top 3 régions: >50% des effectifs
+--    - Top 5 régions: >65% des effectifs
+--
+-- 2. RÉGIONS DYNAMIQUES:
+--    - Auvergne-Rhône-Alpes (Lyon)
+--    - Occitanie (Toulouse)
+--    - Provence-Alpes-Côte d'Azur (Marseille)
+--
+-- 3. OPPORTUNITÉS DE DÉVELOPPEMENT:
+--    - Régions sous-représentées par rapport à leur population
+--    - Régions avec peu d'offres de formation data locales
+--
 
