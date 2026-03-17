@@ -83,8 +83,8 @@ cleaned as (
         -- Genre
    
         -- Normalisation et gestion des valeurs manquantes:
-        --   - M → "Homme"
-        --   - F → "Femme"
+        --   - M à"Homme"
+        --   - F à "Femme"
         --   - NULL ou vide à "Non renseigné"
      
         -- Cette normalisation facilite l'analyse et la lecture des résultats

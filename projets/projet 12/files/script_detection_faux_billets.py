@@ -37,13 +37,13 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
-# ============================================================
+
 # CONFIGURATION
 # ============================================================
 FEATURES = ['diagonal', 'height_left', 'height_right', 'margin_low', 'margin_up', 'length']
 TRAINING_DATA_PATH = 'billets.csv'  # Fichier d'entraînement
 
-# ============================================================
+
 # ENTRAÎNEMENT DU MODÈLE (fait une seule fois au démarrage)
 # ============================================================
 def entrainer_modele():
@@ -121,30 +121,30 @@ def mode_fichier(chemin_fichier):
     Mode fichier : lit un CSV et prédit pour tous les billets.
     """
     if not os.path.exists(chemin_fichier):
-        print(f"❌ Erreur : Le fichier '{chemin_fichier}' n'existe pas.")
+        print(f" Erreur : Le fichier '{chemin_fichier}' n'existe pas.")
         sys.exit(1)
 
     try:
         X_input = pd.read_csv(chemin_fichier, sep=';')
     except Exception as e:
-        print(f"❌ Erreur lors de la lecture du fichier : {e}")
+        print(f" Erreur lors de la lecture du fichier : {e}")
         sys.exit(1)
 
     # Vérification du format
     missing = [c for c in FEATURES if c not in X_input.columns]
     if missing:
-        print(f"❌ Colonnes manquantes dans le fichier : {missing}")
+        print(f" Colonnes manquantes dans le fichier : {missing}")
         print(f"   Colonnes attendues : {FEATURES}")
         sys.exit(1)
 
-    print(f"\n📂 Fichier chargé : {chemin_fichier}")
+    print(f"\n Fichier chargé : {chemin_fichier}")
     print(f"   Nombre de billets à analyser : {len(X_input)}")
     print("=" * 70)
 
     # Entraînement du modèle
-    print("🔄 Entraînement du modèle en cours...")
+    print(" Entraînement du modèle en cours...")
     modele, scaler = entrainer_modele()
-    print("✅ Modèle entraîné avec succès (Régression Logistique)")
+    print(" Modèle entraîné avec succès (Régression Logistique)")
     print("=" * 70)
 
     # Prédiction
@@ -159,15 +159,15 @@ def mode_fichier(chemin_fichier):
     # Résumé
     n_vrais = (resultats['Résultat'] == 'VRAI ✓').sum()
     n_faux = (resultats['Résultat'] == 'FAUX ✗').sum()
-    print(f"\n📋 RÉSUMÉ :")
-    print(f"   ✅ Billets identifiés comme VRAIS  : {n_vrais}")
-    print(f"   ❌ Billets identifiés comme FAUX   : {n_faux}")
-    print(f"   📊 Taux de faux détectés           : {n_faux/len(resultats)*100:.1f}%")
+    print(f"\n RÉSUMÉ :")
+    print(f"   Billets identifiés comme VRAIS  : {n_vrais}")
+    print(f"   Billets identifiés comme FAUX   : {n_faux}")
+    print(f"   Taux de faux détectés           : {n_faux/len(resultats)*100:.1f}%")
 
     # Sauvegarde des résultats
     output_file = chemin_fichier.replace('.csv', '_resultats.csv')
     resultats.to_csv(output_file, sep=';', index=False)
-    print(f"\n💾 Résultats sauvegardés dans : {output_file}")
+    print(f"\n Résultats sauvegardés dans : {output_file}")
 
     return resultats
 
@@ -199,15 +199,15 @@ def mode_manuel():
                 valeurs[feat] = float(val)
                 break
             except ValueError:
-                print("  ⚠️  Veuillez entrer un nombre valide.")
+                print("    Veuillez entrer un nombre valide.")
 
     # Créer le DataFrame
     X_input = pd.DataFrame([valeurs])
 
     # Entraînement du modèle
-    print("\n🔄 Entraînement du modèle en cours...")
+    print("\n Entraînement du modèle en cours...")
     modele, scaler = entrainer_modele()
-    print("✅ Modèle entraîné avec succès")
+    print(" Modèle entraîné avec succès")
 
     # Prédiction
     resultats = predire(modele, scaler, X_input)
@@ -216,10 +216,10 @@ def mode_manuel():
     resultat = resultats.iloc[0]
     print("\n" + "=" * 70)
     if 'VRAI' in resultat['Résultat']:
-        print(f"  ✅  Le billet est identifié comme : VRAI")
+        print(f"    Le billet est identifié comme : VRAI")
     else:
-        print(f"  ❌  Le billet est identifié comme : FAUX")
-    print(f"  📊  Niveau de confiance : {resultat['Confiance (%)']}%")
+        print(f"    Le billet est identifié comme : FAUX")
+    print(f"    Niveau de confiance : {resultat['Confiance (%)']}%")
     print("=" * 70)
 
     # Option : vérifier un autre billet
@@ -229,7 +229,7 @@ def mode_manuel():
             mode_manuel()
             return
         elif autre in ['n', 'non', 'no']:
-            print("\n👋 Au revoir !")
+            print("\n Au revoir !")
             return
         else:
             print("  Répondez par 'o' (oui) ou 'n' (non).")
@@ -264,7 +264,7 @@ Exemples d'utilisation :
 
     # Vérification que le fichier d'entraînement existe
     if not os.path.exists(TRAINING_DATA_PATH):
-        print(f"❌ Erreur : Le fichier d'entraînement '{TRAINING_DATA_PATH}' n'existe pas.")
+        print(f" Erreur : Le fichier d'entraînement '{TRAINING_DATA_PATH}' n'existe pas.")
         print("   Assurez-vous que 'billets.csv' est dans le même répertoire que ce script.")
         sys.exit(1)
 
@@ -281,7 +281,7 @@ Exemples d'utilisation :
     else:
         # Si aucun argument : afficher l'aide
         parser.print_help()
-        print("\n💡 Conseil : utilisez '--fichier' pour un fichier CSV ou '--manuel' pour une saisie interactive.")
+        print("\n Conseil : utilisez '--fichier' pour un fichier CSV ou '--manuel' pour une saisie interactive.")
 
 
 if __name__ == '__main__':
