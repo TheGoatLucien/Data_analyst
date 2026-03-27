@@ -99,7 +99,7 @@ def clean_data(df):
     # Vérification finale
     remaining_nan = df[FEATURES].isnull().sum().sum()
     if remaining_nan > 0:
-        print(f"   ⚠️  Attention : {remaining_nan} valeurs NaN restantes après imputation")
+        print(f"    Attention : {remaining_nan} valeurs NaN restantes après imputation")
         # Imputation de secours : remplacer par 0
         df[FEATURES] = df[FEATURES].fillna(0)
         print(f"   → Imputation de secours appliquée (remplacement par 0)")
