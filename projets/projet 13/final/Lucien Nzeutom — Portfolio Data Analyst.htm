@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<!-- saved from url=(0103)file:///C:/Users/nzeut/Desktop/Data%20Analyst/Data_analyst/projets/projet%2013/final/index.html#contact -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucien Nzeutom — Portfolio Data Analyst</title>
+<link href="Lucien%20Nzeutom%20%E2%80%94%20Portfolio%20Data%20Analyst_files/css2" rel="stylesheet">
+<script src="Lucien%20Nzeutom%20%E2%80%94%20Portfolio%20Data%20Analyst_files/chart.umd.min.js.download"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0D1117;--ink2:#1A2332;--paper:#F7F3ED;--cream:#EDE8E0;
+  --gold:#C9A84C;--gold-lt:#F5EDD6;--blue:#1B4FD8;--blue-lt:#E8EFFE;
+  --teal:#0D9488;--teal-lt:#CCFBF1;--rust:#C2410C;--rust-lt:#FFEDD5;
+  --sage:#4A7C59;--sage-lt:#DCFCE7;--muted:#6B7280;--border:#E2D9CC;--border2:#D4C9BA
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:200;background:rgba(247,243,237,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:58px}
+.nav-brand{font-family:'Fraunces',serif;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.3px}
+.nav-brand span{color:var(--gold)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:var(--paper)!important;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600!important;text-decoration:none}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 60px 60px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(201,168,76,.07) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 20% 70%,rgba(27,79,216,.04) 0%,transparent 50%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 400px;gap:64px;align-items:center;max-width:1200px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);background:var(--gold-lt);border:1px solid rgba(201,168,76,.25);padding:4px 14px;border-radius:20px;margin-bottom:22px}
+h1.hero-name{font-family:'Fraunces',serif;font-size:clamp(44px,5.5vw,72px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin-bottom:14px}
+h1.hero-name em{font-style:italic;font-weight:300;color:var(--gold)}
+.hero-role{font-size:18px;font-weight:500;color:var(--muted);margin-bottom:12px}
+.hero-desc{font-size:15px;color:var(--muted);max-width:540px;line-height:1.8;margin-bottom:32px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.btn{padding:13px 26px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-dark:hover{background:var(--blue);transform:translateY(-1px)}
+.btn-outline{border:1.5px solid var(--border2);color:var(--ink);background:transparent}
+.btn-outline:hover{border-color:var(--ink)}
+.hero-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;border:1px solid var(--border2);color:var(--muted);background:white}
+.profile-card{background:var(--ink2);border-radius:20px;padding:30px;color:white;box-shadow:0 24px 80px rgba(13,17,23,.14);animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.pc-top{display:flex;align-items:center;gap:14px;margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.08)}
+.pc-av{width:52px;height:52px;background:linear-gradient(135deg,var(--gold),#E8A020);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--ink)}
+.pc-name{font-family:'Fraunces',serif;font-size:16px;font-weight:700}
+.pc-role-sm{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
+.pc-avail{font-size:11px;color:#4ADE80;margin-top:5px;display:flex;align-items:center;gap:5px}
+.pc-avail::before{content:'';width:6px;height:6px;background:#4ADE80;border-radius:50%;display:block}
+.pc-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.pc-kpi{background:rgba(255,255,255,.05);border-radius:9px;padding:13px 15px}
+.pc-kpi-v{font-family:'DM Mono',monospace;font-size:28px;font-weight:500;color:var(--gold);line-height:1}
+.pc-kpi-l{font-size:11px;color:rgba(255,255,255,.45);margin-top:2px}
+.pc-bars{display:flex;flex-direction:column;gap:7px}
+.pc-bar-row{display:flex;align-items:center;gap:8px}
+.pc-bar-name{font-size:11px;color:rgba(255,255,255,.65);min-width:68px}
+.pc-bar-track{flex:1;background:rgba(255,255,255,.07);border-radius:3px;height:5px;overflow:hidden}
+.pc-bar-fill{height:100%;border-radius:3px}
+.pc-bar-pct{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.35);min-width:26px;text-align:right}
+.stats-band{background:var(--ink);padding:44px 60px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{text-align:center;padding:0 20px;border-right:1px solid rgba(255,255,255,.07)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Fraunces',serif;font-size:52px;font-weight:700;color:var(--gold);line-height:1}
+.stat-lbl{font-size:13px;color:rgba(255,255,255,.5);margin-top:7px}
+.stat-sub{font-size:11px;color:rgba(255,255,255,.28);margin-top:3px}
+section{max-width:1200px;margin:0 auto;padding:80px 40px}
+.sec-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.sec-eyebrow::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-h{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-.5px;margin-bottom:10px}
+.sec-desc{font-size:15px;color:var(--muted);max-width:580px;line-height:1.8;margin-bottom:44px}
+.parcours-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:24px}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-24px;top:8px;width:14px;height:14px;border-radius:50%;border:2px solid;background:white}
+.tl-card{background:white;border:1px solid var(--border);border-radius:12px;padding:18px 22px;transition:box-shadow .2s,transform .2s}
+.tl-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.06);transform:translateX(3px)}
+.tl-period{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:3px}
+.tl-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.tl-org{font-size:13px;color:var(--muted)}
+.tl-chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.chip{font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px}
+.lang-card{background:white;border:1px solid var(--border);border-radius:14px;padding:22px}
+.lang-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:16px}
+.lang-rows{display:flex;flex-direction:column;gap:12px}
+.lang-row{display:flex;align-items:center;gap:12px}
+.lang-flag{font-size:18px;flex-shrink:0}
+.lang-name{font-size:13px;font-weight:600;min-width:80px}
+.lang-track{flex:1;background:var(--cream);height:7px;border-radius:4px;overflow:hidden}
+.lang-fill{height:100%;border-radius:4px}
+.lang-level{font-size:11px;color:var(--muted);min-width:90px;text-align:right}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.proj-card{background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:box-shadow .25s,transform .25s}
+.proj-card:hover{box-shadow:0 14px 44px rgba(0,0,0,.07);transform:translateY(-3px)}
+.proj-stripe{height:5px}
+.proj-body{padding:18px 20px}
+.proj-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:5px}
+.proj-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.proj-tools{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+.tool-chip{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;padding:2px 8px;border-radius:5px;background:var(--cream);color:var(--ink2)}
+.proj-ss{font-size:11px;color:var(--sage);font-weight:500;margin-bottom:12px}
+.proj-link{font-size:12px;font-weight:600;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:4px;border-top:1px solid var(--border);padding-top:10px;width:100%}
+.proj-link::after{content:'→';margin-left:auto}
+.proj-link:hover{color:var(--ink)}
+.skills-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}
+.skill-bars{display:flex;flex-direction:column;gap:13px}
+.skill-row{display:flex;align-items:center;gap:12px}
+.skill-name{font-size:13px;font-weight:600;min-width:110px}
+.skill-track{flex:1;background:var(--cream);border-radius:5px;height:9px;overflow:hidden}
+.skill-fill{height:100%;border-radius:5px}
+.skill-lv{font-size:11px;font-weight:600;padding:2px 9px;border-radius:10px;min-width:88px;text-align:center}
+.chart-card{background:white;border:1px solid var(--border);border-radius:14px;padding:22px}
+.chart-label{font-size:13px;font-weight:700;margin-bottom:4px}
+.chart-sub-lbl{font-size:11px;color:var(--muted);margin-bottom:14px}
+.chart-wrap{height:220px;position:relative}
+.video-band{background:var(--ink);padding:80px 60px}
+.video-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.video-text h2{font-family:'Fraunces',serif;font-size:34px;font-weight:700;color:white;margin-bottom:12px;line-height:1.2}
+.video-text p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:22px}
+.video-meta{display:flex;flex-direction:column;gap:7px}
+.vm{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.65)}
+.vm::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0}
+.video-frame{background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden}
+.vf-bar{background:rgba(255,255,255,.05);padding:9px 14px;display:flex;align-items:center;gap:6px}
+.vf-dot{width:9px;height:9px;border-radius:50%}
+.vf-play{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 20px;text-decoration:none;transition:opacity .2s}
+.vf-play:hover{opacity:.82}
+.play-circle{width:56px;height:56px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--ink);margin-bottom:12px;box-shadow:0 0 0 10px rgba(201,168,76,.12)}
+.vf-label{font-size:13px;color:rgba(255,255,255,.8);font-weight:500;text-align:center}
+.vf-sub{font-size:11px;color:rgba(255,255,255,.38);margin-top:3px;text-align:center}
+.veille-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.veille-card{background:white;border:1px solid var(--border);border-radius:13px;padding:22px}
+.vc-title{font-size:13px;font-weight:700;margin-bottom:14px;color:var(--ink);border-bottom:1px solid var(--border);padding-bottom:10px}
+.vc-row{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid var(--cream);font-size:12px;color:var(--muted);line-height:1.5}
+.vc-row:last-child{border-bottom:none}
+.vc-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:1px}
+.vc-arrow{color:var(--gold);font-weight:700;flex-shrink:0}
+.posture-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.posture-card{background:white;border:1px solid var(--border);border-radius:12px;padding:22px;transition:box-shadow .2s,transform .2s}
+.posture-card:hover{box-shadow:0 8px 24px rgba(0,0,0,.06);transform:translateY(-2px)}
+.posture-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.posture-desc{font-size:12px;color:var(--muted);line-height:1.7}
+.contact-band{padding:80px 60px}
+.contact-inner{max-width:640px;margin:0 auto;text-align:center}
+.contact-inner h2{font-family:'Fraunces',serif;font-size:38px;font-weight:700;margin-bottom:12px}
+.contact-inner p{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:30px}
+.contact-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+footer{background:var(--ink2);color:rgba(255,255,255,.45);padding:22px 48px;display:flex;justify-content:space-between;align-items:center;font-size:12px}
+footer strong{color:var(--gold)}
+.fade{opacity:0;transform:translateY(20px);animation:fadeUp .7s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}.d4{animation-delay:.4s}
+@media(max-width:900px){
+  nav .nav-links{display:none}
+  .hero{padding:90px 24px 40px}
+  .hero-grid,.parcours-grid,.skills-layout,.video-inner{grid-template-columns:1fr}
+  .profile-card{display:none}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .projects-grid{grid-template-columns:1fr}
+  .veille-grid,.posture-grid{grid-template-columns:1fr}
+  section{padding:60px 24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Lucien <span>Nzeutom</span></div>
+  <div class="nav-links">
+    <a href="file:///C:/Users/nzeut/Desktop/Data%20Analyst/Data_analyst/projets/projet%2013/final/index.html#parcours">Parcours</a>
+    <a href="file:///C:/Users/nzeut/Desktop/Data%20Analyst/Data_analyst/projets/projet%2013/final/index.html#projets">Projets</a>
+    <a href="file:///C:/Users/nzeut/Desktop/Data%20Analyst/Data_analyst/projets/projet%2013/final/index.html#competences">Compétences</a>
+    <a href="file:///C:/Users/nzeut/Desktop/Data%20Analyst/Data_analyst/projets/projet%2013/final/index.html#veille">Veille</a>
+    <a href="file:///C:/Users/nzeut/Desktop/Data%20Analyst/Data_analyst/projets/projet%2013/final/index.html#video">Formation</a>
+    <a href="file:///C:/Users/nzeut/Desktop/Data%20Analyst/Data_analyst/projets/projet%2013/final/index.html#contact" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow fade">Portfolio — Candidature Aéroworld 2026</div>
+      <h1 class="hero-name fade d1">Lucien<br><em>Nzeutom</em></h1>
+      <div class="hero-role fade d2">Data Analyst · Chef de Projet Data</div>
+      <p class="hero-desc fade d2">Passionné par la transformation des 
+données en décisions stratégiques. Je conçois des tableaux de bord, 
+analyse les besoins métiers et accompagne les équipes vers une culture 
+data. Profil polyvalent, multilingue, orienté conseil.</p>
+      <div class="hero-actions fade d3">
+        <a href="file:///C:/Users/nzeut/Desktop/Data%20Analyst/Data_analyst/projets/projet%2013/final/index.html#projets" class="btn btn-dark">Voir mes projets</a>
+        <a href="file:///C:/Users/nzeut/Desktop/Data%20Analyst/Data_analyst/projets/projet%2013/final/index.html#video" class="btn btn-outline">Vidéo de formation</a>
+      </div>
+      <div class="hero-tags fade d4">
+        <span class="tag">OpenClassrooms</span>
+        <span class="tag">FR · IT · EN · ES · SW · JA</span>
+        <span class="tag">Candidature Aéroworld</span>
+      </div>
+    </div>
+    <div class="profile-card fade d2">
+      <div class="pc-top">
+        <div class="pc-av">LN</div>
+        <div>
+          <div class="pc-name">Lucien Nzeutom</div>
+          <div class="pc-role-sm">Data Analyst · Chef de Projet Data</div>
+          <div class="pc-avail">Disponible pour recrutement</div>
+        </div>
+      </div>
+      <div class="pc-kpis">
+        <div class="pc-kpi"><div class="pc-kpi-v">13</div><div class="pc-kpi-l">Projets réalisés</div></div>
+        <div class="pc-kpi"><div class="pc-kpi-v">13</div><div class="pc-kpi-l">Livrables produits</div></div>
+        <div class="pc-kpi"><div class="pc-kpi-v">12</div><div class="pc-kpi-l">Mois de formation</div></div>
+        <div class="pc-kpi"><div class="pc-kpi-v">5</div><div class="pc-kpi-l">Outils maîtrisés</div></div>
+      </div>
+      <div class="pc-bars">
+        <div class="pc-bar-row"><span class="pc-bar-name">Excel</span><div class="pc-bar-track"><div class="pc-bar-fill" style="width:92%;background:#C9A84C"></div></div><span class="pc-bar-pct">92%</span></div>
+        <div class="pc-bar-row"><span class="pc-bar-name">Python</span><div class="pc-bar-track"><div class="pc-bar-fill" style="width:80%;background:#1B4FD8"></div></div><span class="pc-bar-pct">80%</span></div>
+        <div class="pc-bar-row"><span class="pc-bar-name">SQL</span><div class="pc-bar-track"><div class="pc-bar-fill" style="width:85%;background:#0D9488"></div></div><span class="pc-bar-pct">85%</span></div>
+        <div class="pc-bar-row"><span class="pc-bar-name">Power BI</span><div class="pc-bar-track"><div class="pc-bar-fill" style="width:78%;background:#C9A84C"></div></div><span class="pc-bar-pct">78%</span></div>
+        <div class="pc-bar-row"><span class="pc-bar-name">Git / GitHub</span><div class="pc-bar-track"><div class="pc-bar-fill" style="width:65%;background:#4A7C59"></div></div><span class="pc-bar-pct">65%</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num">11+</div><div class="stat-lbl">Projets réalisés</div><div class="stat-sub">durant la formation</div></div>
+    <div class="stat-item"><div class="stat-num">5+</div><div class="stat-lbl">Outils maîtrisés</div><div class="stat-sub">Power BI · Python · SQL…</div></div>
+    <div class="stat-item"><div class="stat-num">12</div><div class="stat-lbl">Mois de formation</div><div class="stat-sub">OpenClassrooms</div></div>
+    <div class="stat-item"><div class="stat-num">6</div><div class="stat-lbl">Langues</div><div class="stat-sub">FR · IT · EN · ES · SW · JA</div></div>
+  </div>
+</div>
+
+<section id="parcours">
+  <div class="sec-eyebrow">Parcours</div>
+  <h2 class="sec-h">Une trajectoire construite pas à pas</h2>
+  <p class="sec-desc">De la langue à l'ingénierie logicielle, puis à la 
+data. Chaque étape a forgé une vision pluridisciplinaire et une capacité
+ d'adaptation rare.</p>
+  <div class="parcours-grid">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot" style="border-color:var(--gold);background:var(--gold-lt)"></div>
+        <div class="tl-card">
+          <div class="tl-period">2026 — En cours</div>
+          <div class="tl-title">Formation Data Analyst</div>
+          <div class="tl-org">OpenClassrooms</div>
+          <div class="tl-chips">
+            <span class="chip" style="background:var(--blue-lt);color:var(--blue)">Power BI</span>
+            <span class="chip" style="background:var(--teal-lt);color:var(--teal)">SQL</span>
+            <span class="chip" style="background:var(--gold-lt);color:#92660A">Python</span>
+            <span class="chip" style="background:var(--sage-lt);color:var(--sage)">Miro</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="border-color:var(--rust);background:var(--rust-lt)"></div>
+        <div class="tl-card">
+          <div class="tl-period">Jan. 2025 — Jan. 2026</div>
+          <div class="tl-title">Polyvalent en hôtellerie</div>
+          <div class="tl-org">NeaClub-Pulka</div>
+          <div class="tl-chips">
+            <span class="chip" style="background:var(--rust-lt);color:var(--rust)">Service client</span>
+            <span class="chip" style="background:var(--rust-lt);color:var(--rust)">Adaptabilité</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="border-color:#7C3AED;background:#F5F3FF"></div>
+        <div class="tl-card">
+          <div class="tl-period">Jan. 2024 — Jan. 2025</div>
+          <div class="tl-title">Formation en développement de jeux vidéo</div>
+          <div class="tl-org">Game Academy</div>
+          <div class="tl-chips">
+            <span class="chip" style="background:#F5F3FF;color:#7C3AED">Programmation</span>
+            <span class="chip" style="background:#F5F3FF;color:#7C3AED">Logique</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="border-color:var(--blue);background:var(--blue-lt)"></div>
+        <div class="tl-card">
+          <div class="tl-period">Jan. 2021 — Jan. 2023</div>
+          <div class="tl-title">Formation en génie logiciel</div>
+          <div class="tl-org">ICT-University</div>
+          <div class="tl-chips">
+            <span class="chip" style="background:var(--blue-lt);color:var(--blue)">Git / GitHub</span>
+            <span class="chip" style="background:var(--blue-lt);color:var(--blue)">Algorithmique</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot" style="border-color:var(--teal);background:var(--teal-lt)"></div>
+        <div class="tl-card">
+          <div class="tl-period">Jan. 2019 — Jan. 2020</div>
+          <div class="tl-title">Formation en langue italienne</div>
+          <div class="tl-org">Parliamo</div>
+          <div class="tl-chips">
+            <span class="chip" style="background:var(--teal-lt);color:var(--teal)">Italien</span>
+            <span class="chip" style="background:var(--teal-lt);color:var(--teal)">Communication</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="chart-card">
+        <div class="chart-label">Compétences validées sur LinkedIn</div>
+        <div class="chart-sub-lbl">Endorsements — Profil Lucien Nzeutom</div>
+        <div class="chart-wrap"><canvas id="chartLinkedin" width="613" height="275" style="display: block; box-sizing: border-box; height: 220px; width: 490px;"></canvas></div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-title">Profil multilingue: 6 langues</div>
+        <div class="lang-rows">
+          <div class="lang-row"><span class="lang-flag">🇫🇷</span><span class="lang-name">Français</span><div class="lang-track"><div class="lang-fill" style="width:100%;background:var(--blue)"></div></div><span class="lang-level">Natif</span></div>
+          <div class="lang-row"><span class="lang-flag">🇮🇹</span><span class="lang-name">Italien</span><div class="lang-track"><div class="lang-fill" style="width:85%;background:var(--rust)"></div></div><span class="lang-level">Avancé</span></div>
+          <div class="lang-row"><span class="lang-flag">🇬🇧</span><span class="lang-name">Anglais</span><div class="lang-track"><div class="lang-fill" style="width:85%;background:var(--teal)"></div></div><span class="lang-level">Avancé</span></div>
+          <div class="lang-row"><span class="lang-flag">🇪🇸</span><span class="lang-name">Espagnol</span><div class="lang-track"><div class="lang-fill" style="width:55%;background:#D97706"></div></div><span class="lang-level">Intermédiaire</span></div>
+          <div class="lang-row"><span class="lang-flag">sw</span><span class="lang-name">Swahili</span><div class="lang-track"><div class="lang-fill" style="width:30%;background:var(--sage)"></div></div><span class="lang-level">Débutant</span></div>
+          <div class="lang-row"><span class="lang-flag">🇯🇵</span><span class="lang-name">Japonais</span><div class="lang-track"><div class="lang-fill" style="width:22%;background:#7C3AED"></div></div><span class="lang-level">Notions+</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets" style="background:var(--cream);max-width:100%;padding:80px 0"><section id="projets" style="background:var(--cream);max-width:100%;padding:80px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 40px">
+  <div class="sec-eyebrow">Projets de Formation</div>
+  <h2 class="sec-h">11 projets, des compétences concrètes</h2>
+  <p class="sec-desc">Chaque projet de la formation OpenClassrooms a été
+ réalisé sur un cas réel, avec des livrables professionnels accessibles 
+sur GitHub.</p>
+  <div class="projects-grid">
+    
+    <div class="proj-card">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,var(--teal),#5EEAD4)"></div>
+      <div class="proj-body">
+        <div class="proj-num">Projet 1</div>
+        <div class="proj-title">Analyse de ventes</div>
+        <div class="proj-tools"><span class="tool-chip">Data viz</span><span class="tool-chip">Storytelling</span></div>
+        <div class="proj-ss">Rigueur · Communication</div>
+        <a href="https://github.com/TheGoatLucien/Data_analyst/tree/903701a4e6fe664b76b9081065f9954b7906b9d1/projets/Analyse_de_vente_Nzeutom_Lucien" target="_blank" class="proj-link">Voir le livrable sur GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,var(--sage),#86EFAC)"></div>
+      <div class="proj-body">
+        <div class="proj-num">Projet 2</div>
+        <div class="proj-title">Base de données avec SQL</div>
+        <div class="proj-tools"><span class="tool-chip">SQL</span><span class="tool-chip">PowerPoint</span></div>
+        <div class="proj-ss">Posture conseil</div>
+        <a href="https://github.com/TheGoatLucien/Data_analyst/tree/903701a4e6fe664b76b9081065f9954b7906b9d1/projets/projet3/Requetes_base_de_donn%C3%A9e_Lucien_Nzeutom" target="_blank" class="proj-link">Voir le livrable sur GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,var(--blue),#60A5FA)"></div>
+      <div class="proj-body">
+        <div class="proj-num">Projet 3</div>
+        <div class="proj-title">Etude de santé publique</div>
+        <div class="proj-tools"><span class="tool-chip">Python</span><span class="tool-chip">PowerPoint</span></div>
+        <div class="proj-ss">Autonomie · Pédagogie</div>
+        <a href="https://github.com/TheGoatLucien/Data_analyst/tree/903701a4e6fe664b76b9081065f9954b7906b9d1/projets/projet%204/Etude_de_sant%C3%A9_publique_Nzeutom_Lucien" target="_blank" class="proj-link">Voir le livrable sur GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,#D97706,#FCD34D)"></div>
+      <div class="proj-body">
+        <div class="proj-num">Projet 4</div>
+        <div class="proj-title">Base de données immobilière</div>
+        <div class="proj-tools"><span class="tool-chip">SQL</span><span class="tool-chip">PowerPoint</span></div>
+        <div class="proj-ss">Autonomie · Pédagogie</div>
+        <a href="https://github.com/TheGoatLucien/Data_analyst/tree/903701a4e6fe664b76b9081065f9954b7906b9d1/projets/projet%205/Base_de_donnee_immobili%C3%A8re_Nzeutom_Lucien" target="_blank" class="proj-link">Voir le livrable sur GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,#C9A84C,#F5E17A)"></div>
+      <div class="proj-body">
+        <div class="proj-num">Projet 5</div>
+        <div class="proj-title">Optimisation de la gestion des données d'une boutique</div>
+        <div class="proj-tools"><span class="tool-chip">Python</span><span class="tool-chip">PowerPoint</span></div>
+        <div class="proj-ss">Rigueur · Communication · Posture conseil</div>
+        <a href="https://github.com/TheGoatLucien/Data_analyst/tree/903701a4e6fe664b76b9081065f9954b7906b9d1/projets/projet%206/Gestion_boutique_Lucien_Nzeutom" target="_blank" class="proj-link">Voir le livrable sur GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,var(--rust),#FCA5A5)"></div>
+      <div class="proj-body">
+        <div class="proj-num">Projet 6</div>
+        <div class="proj-title">Visualisation de l'avancement de projets</div>
+        <div class="proj-tools"><span class="tool-chip">Power BI</span></div>
+        <div class="proj-ss">Posture conseil · Rigueur · Communication</div>
+        <a href="https://github.com/TheGoatLucien/Data_analyst/tree/903701a4e6fe664b76b9081065f9954b7906b9d1/projets/projet%207/Power_bi_Nzeutom_Lucien" target="_blank" class="proj-link">Voir le livrable sur GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,#7C3AED,#C4B5FD)"></div>
+      <div class="proj-body">
+        <div class="proj-num">Projet 7</div>
+        <div class="proj-title">Evolution de profils sociodémographiques</div>
+        <div class="proj-tools"><span class="tool-chip">DBT</span><span class="tool-chip">SnowFlake</span></div>
+        <div class="proj-ss">Rigueur · Autonomie · Posture conseil</div>
+        <a href="https://github.com/TheGoatLucien/Data_analyst/tree/903701a4e6fe664b76b9081065f9954b7906b9d1/projets/projet%208/final%20F/Nzeutom_Lucien_1_fichier_022026" target="_blank" class="proj-link">Voir le livrable sur GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,#0D9488,#5EEAD4)"></div>
+      <div class="proj-body">
+        <div class="proj-num">Projet 8</div>
+        <div class="proj-title">Analyse de ventes d'une librairie</div>
+        <div class="proj-tools"><span class="tool-chip">Python</span><span class="tool-chip">PowerPoint</span></div>
+        <div class="proj-ss">Autonomie · Pédagogie</div>
+        <a href="https://github.com/TheGoatLucien/Data_analyst/tree/903701a4e6fe664b76b9081065f9954b7906b9d1/projets/projet%209/Data/final/Librairie_Nzeutom_Lucien" target="_blank" class="proj-link">Voir le livrable sur GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,#1A2332,#3B4F6B)"></div>
+      <div class="proj-body">
+        <div class="proj-num">Projet 9</div>
+        <div class="proj-title">Etude sur l'eau potable</div>
+        <div class="proj-tools"><span class="tool-chip">Power BI</span></div>
+        <div class="proj-ss">Rigueur · Posture conseil</div>
+        <a href="https://github.com/TheGoatLucien/Data_analyst/tree/903701a4e6fe664b76b9081065f9954b7906b9d1/projets/projet%2010/Etude_eau_potable_Lucien_Nzeutom" target="_blank" class="proj-link">Voir le livrable sur GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,var(--teal),#5EEAD4)"></div>
+      <div class="proj-body">
+        <div class="proj-num">Projet 10</div>
+        <div class="proj-title">Etude de marché avancée</div>
+        <div class="proj-tools"><span class="tool-chip">Python</span><span class="tool-chip">PowerPoint</span></div>
+        <div class="proj-ss">Autonomie · Posture conseil</div>
+        <a href="https://github.com/TheGoatLucien/Data_analyst/tree/903701a4e6fe664b76b9081065f9954b7906b9d1/projets/projet%2011/DAN-P9-data/final/Etude_de_march%C3%A9_Nzeutom_Lucien" target="_blank" class="proj-link">Voir le livrable sur GitHub</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-stripe" style="background:linear-gradient(90deg,var(--sage),#86EFAC)"></div>
+      <div class="proj-body">
+        <div class="proj-num">Projet 11</div>
+        <div class="proj-title">Détection de faux billets</div>
+        <div class="proj-tools"><span class="tool-chip">Python (Machine Learning)</span><span class="tool-chip">PowerPoint</span></div>
+        <div class="proj-ss">Autonomie · Rigueur · Posture conseil</div>
+        <a href="https://github.com/TheGoatLucien/Data_analyst/tree/903701a4e6fe664b76b9081065f9954b7906b9d1/projets/projet%2012/Detecteur_faux_billet_Nzeutom_Lucien" target="_blank" class="proj-link">Voir le livrable sur GitHub</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section></section>
+
+<section id="competences">
+  <div class="sec-eyebrow">Compétences Techniques</div>
+  <h2 class="sec-h">Maîtrise des outils data</h2>
+  <p class="sec-desc">Compétences acquises et validées tout au long de 
+la formation, de l'analyse exploratoire à la visualisation et la gestion
+ de projet.</p>
+  <div class="skills-layout">
+    <div class="skill-bars">
+      <div class="skill-row"><span class="skill-name">Excel</span><div class="skill-track"><div class="skill-fill" style="width:92%;background:linear-gradient(90deg,#1B7A3E,#4ADE80)"></div></div><span class="skill-lv" style="background:var(--sage-lt);color:#166534">Expert — 92%</span></div>
+      <div class="skill-row"><span class="skill-name">SQL</span><div class="skill-track"><div class="skill-fill" style="width:85%;background:linear-gradient(90deg,#0D9488,#5EEAD4)"></div></div><span class="skill-lv" style="background:var(--teal-lt);color:#065F46">Avancé — 85%</span></div>
+      <div class="skill-row"><span class="skill-name">Python</span><div class="skill-track"><div class="skill-fill" style="width:80%;background:linear-gradient(90deg,#1B4FD8,#60A5FA)"></div></div><span class="skill-lv" style="background:var(--blue-lt);color:#1E40AF">Avancé — 80%</span></div>
+      <div class="skill-row"><span class="skill-name">Power BI</span><div class="skill-track"><div class="skill-fill" style="width:78%;background:linear-gradient(90deg,#C9A84C,#FCD34D)"></div></div><span class="skill-lv" style="background:var(--gold-lt);color:#92400E">Avancé — 78%</span></div>
+      <div class="skill-row"><span class="skill-name">Miro</span><div class="skill-track"><div class="skill-fill" style="width:80%;background:linear-gradient(90deg,#BE185D,#F472B6)"></div></div><span class="skill-lv" style="background:#FCE7F3;color:#9D174D">Avancé — 80%</span></div>
+      <div class="skill-row"><span class="skill-name">Git / GitHub</span><div class="skill-track"><div class="skill-fill" style="width:65%;background:linear-gradient(90deg,#4A7C59,#86EFAC)"></div></div><span class="skill-lv" style="background:var(--sage-lt);color:#166534">Interméd. — 65%</span></div>
+      <div class="skill-row"><span class="skill-name">Tableau</span><div class="skill-track"><div class="skill-fill" style="width:60%;background:linear-gradient(90deg,#7C3AED,#C4B5FD)"></div></div><span class="skill-lv" style="background:#F5F3FF;color:#5B21B6">Interméd. — 60%</span></div>
+      <div class="skill-row"><span class="skill-name">Cloud / Azure</span><div class="skill-track"><div class="skill-fill" style="width:45%;background:linear-gradient(90deg,#C2410C,#FCA5A5)"></div></div><span class="skill-lv" style="background:var(--rust-lt);color:#9A3412">Notions — 45%</span></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-label">Soft Skills</div>
+      <div class="chart-sub-lbl">Compétences comportementales développées en formation</div>
+      <div class="chart-wrap"><canvas id="chartRadar" width="556" height="275" style="display: block; box-sizing: border-box; height: 220px; width: 445px;"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<div class="video-band" id="video">
+  <div class="video-inner">
+    <div class="video-text">
+      <h2>Formation Power BI<br>en vidéo</h2>
+      <p>Démonstration pédagogique complète de la création d'un tableau 
+de bord dans Power BI Desktop. Je m'adresse directement aux utilisateurs
+ et explique chaque étape avec clarté.</p>
+      <div class="video-meta">
+        <div class="vm">8 minutes de formation</div>
+        <div class="vm">Création d'un dashboard de A à Z</div>
+        <div class="vm">Adapté aux utilisateurs débutants</div>
+        <div class="vm">Enregistré sur Loom</div>
+      </div>
+    </div>
+    <div class="video-frame">
+      <div class="vf-bar">
+        <div class="vf-dot" style="background:#FF5F57"></div>
+        <div class="vf-dot" style="background:#FFBD2E"></div>
+        <div class="vf-dot" style="background:#28C840"></div>
+        <span style="font-size:11px;color:rgba(255,255,255,.35);margin-left:8px;font-family:'DM Mono',monospace">loom.com</span>
+      </div>
+      <a href="https://www.loom.com/share/46c9de2d398042ea89ab99e0ade4887c" target="_blank" class="vf-play">
+        <div class="play-circle">▶</div>
+        <div class="vf-label">Voir la vidéo de formation</div>
+        <div class="vf-sub">Power BI Desktop — Tableau de bord complet</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<section id="veille">
+  <div class="sec-eyebrow">Veille Métier</div>
+  <h2 class="sec-h">Tendances Data 2025-2026</h2>
+  <p class="sec-desc">Synthèse de ma veille métier et technologique — 
+Lucien Nzeutom, février 2026. Sources : Towards Data Science, 
+DataTalks.Club, O'Reilly Data &amp; AI, tests personnels.</p>
+  <div class="veille-grid">
+    <div class="veille-card">
+      <div class="vc-title">Tendances identifiées</div>
+      <div class="vc-row"><span class="vc-tag" style="background:#FEE2E2;color:#DC2626">Très élevé</span>IA générative dans Power BI (Copilot) — gain estimé +40-55%</div>
+      <div class="vc-row"><span class="vc-tag" style="background:#FFEDD5;color:#C2410C">Élevé</span>Modern Data Stack — dbt + Snowflake devient le standard</div>
+      <div class="vc-row"><span class="vc-tag" style="background:#FEF3C7;color:#D97706">Moyen</span>DataOps &amp; CI/CD — pipelines data automatisés</div>
+      <div class="vc-row"><span class="vc-tag" style="background:var(--sage-lt);color:var(--sage)">À suivre</span>Data Mesh — gouvernance décentralisée (15% des entreprises)</div>
+      <div class="vc-row"><span class="vc-tag" style="background:var(--blue-lt);color:var(--blue)">À suivre</span>Reverse ETL — data warehouse vers outils opérationnels</div>
+    </div>
+    <div class="veille-card">
+      <div class="vc-title">Outils testés personnellement</div>
+      <div class="vc-row"><span class="vc-arrow">→</span><strong style="color:var(--ink);margin-right:6px">dbt Core 1.8</strong> Note 4/5. Transformations SQL versionnées. Recommandé.</div>
+      <div class="vc-row"><span class="vc-arrow">→</span><strong style="color:var(--ink);margin-right:6px">Apache Superset 4.0</strong> Note 3/5. Installation complexe. Alternative open source.</div>
+      <div class="vc-row"><span class="vc-arrow">→</span><strong style="color:var(--ink);margin-right:6px">Hex (cloud)</strong> Note 4/5. Notebooks collaboratifs très prometteurs.</div>
+      <div class="vc-row"><span class="vc-arrow">→</span><strong style="color:var(--ink);margin-right:6px">Power BI Copilot</strong> Note 5/5. Incontournable. Génération IA de rapports.</div>
+    </div>
+    <div class="veille-card">
+      <div class="vc-title">Axes d'amélioration identifiés</div>
+      <div class="vc-row"><span class="vc-arrow">→</span>Certification dbt Analytics Engineering — objectif 4 mois</div>
+      <div class="vc-row"><span class="vc-arrow">→</span>Cloud Azure AZ-900 puis DP-203 — objectif 6 mois</div>
+      <div class="vc-row"><span class="vc-arrow">→</span>Microsoft PL-300 Power BI — objectif 3 mois</div>
+      <div class="vc-row"><span class="vc-arrow">→</span>Machine Learning appliqué — Kaggle Learn + projets</div>
+    </div>
+    <div class="veille-card">
+      <div class="vc-title">Sources de veille suivies</div>
+      <div class="vc-row"><span class="vc-arrow">→</span>Towards Data Science — articles Python, ML, Data</div>
+      <div class="vc-row"><span class="vc-arrow">→</span>DataTalks.Club — communauté, podcasts, cours gratuits</div>
+      <div class="vc-row"><span class="vc-arrow">→</span>O'Reilly Data &amp; AI Newsletter — tendances marché</div>
+      <div class="vc-row"><span class="vc-arrow">→</span>Data Engineering Podcast — architecture, outils</div>
+      <div class="vc-row"><span class="vc-arrow">→</span>LinkedIn Data Community — actualités quotidiennes</div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--cream);max-width:100%;padding:80px 0">
+<div style="max-width:1200px;margin:0 auto;padding:0 40px">
+  <div class="sec-eyebrow">Posture Professionnelle</div>
+  <h2 class="sec-h">Soft Skills &amp; Posture Consultant Data</h2>
+  <p class="sec-desc">Les compétences humaines au coeur de la posture de
+ consultant Data Analyst, développées tout au long de la formation et 
+validées projet après projet.</p>
+  <div class="posture-grid">
+    <div class="posture-card"><div class="posture-name">Posture Conseil</div><div class="posture-desc">Challenger
+ les besoins exprimés, recommander au-delà de la demande, se positionner
+ comme expert de confiance auprès des décideurs.</div></div>
+    <div class="posture-card"><div class="posture-name">Communication</div><div class="posture-desc">Vulgariser les concepts techniques, adapter le discours à chaque interlocuteur. Renforcé par la maîtrise de 6 langues.</div></div>
+    <div class="posture-card"><div class="posture-name">Rigueur</div><div class="posture-desc">Qualité irréprochable des livrables, respect des délais, documentation précise et traçable à chaque étape des projets.</div></div>
+    <div class="posture-card"><div class="posture-name">Pédagogie</div><div class="posture-desc">Accompagner les équipes sur les outils, former les utilisateurs et rassurer les non-techniques sur les solutions data.</div></div>
+  </div>
+</div>
+</section>
+
+<div class="contact-band" id="contact">
+  <div class="contact-inner">
+    <h2>Échangeons ensemble</h2>
+    <p>Intéressé par mon profil ? Je suis disponible pour un entretien 
+et la présentation orale de ce portfolio. N'hésitez pas à prendre 
+contact.</p>
+    <div class="contact-btns">
+      <a href="mailto:nzeutomlucien04@gmail.com" class="btn btn-dark">Envoyer un email</a>
+      <a href="https://www.linkedin.com/in/lucien-nz-a4ab91230" target="_blank" class="btn btn-outline">Profil LinkedIn</a>
+      <a href="https://www.loom.com/share/46c9de2d398042ea89ab99e0ade4887c" target="_blank" class="btn btn-outline">Vidéo de formation</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>Portfolio de <strong>Lucien Nzeutom</strong> — Data Analyst | OpenClassrooms x Aéroworld 2026</div>
+  <div>Hébergé sur GitHub Pages</div>
+</footer>
+
+<script>
+Chart.defaults.font.family='DM Sans';
+Chart.defaults.color='#6B7280';
+new Chart(document.getElementById('chartLinkedin'),{type:'bar',data:{labels:['Python','SQL','Dashboard','Data Analysis','Leadership','Data Visualization'],datasets:[{label:'Endorsements',data:[75,68,60,55,48,42],backgroundColor:['#1B4FD8','#0D9488','#C9A84C','#4A7C59','#C2410C','#7C3AED'],borderRadius:6,borderSkipped:false}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:'#F0EBE3'},ticks:{font:{size:10}}},x:{grid:{display:false},ticks:{font:{size:11}}}}}});
+new Chart(document.getElementById('chartRadar'),{type:'radar',data:{labels:['Posture conseil','Pédagogie','Gestion projet','Vulgarisation','Communication','Autonomie','Rigueur'],datasets:[{label:'Lucien Nzeutom',data:[4,4,3,4,4,5,5],backgroundColor:'rgba(201,168,76,0.1)',borderColor:'#C9A84C',borderWidth:2,pointBackgroundColor:'#C9A84C',pointBorderColor:'#fff',pointBorderWidth:2,pointRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{r:{min:0,max:5,ticks:{stepSize:1,display:false},grid:{color:'#E2D9CC'},angleLines:{color:'#E2D9CC'},pointLabels:{font:{size:11},color:'#6B7280'}}}}});
+</script>
+
+
+</body></html>
