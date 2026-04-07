@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV – Lucien Brice Nzeutom Tchoupo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0f0f0f;
+      --paper: #f9f6f0;
+      --accent: #c8572b;
+      --accent-light: #f0e4dc;
+      --muted: #6b6560;
+      --rule: #d8d2c8;
+      --sidebar-bg: #1a1714;
+      --sidebar-text: #e8e2d8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #e8e4de;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--paper);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.25);
+    }
+    /* SIDEBAR */
+    .sidebar {
+      background: var(--sidebar-bg);
+      color: var(--sidebar-text);
+      padding: 48px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    .avatar-wrap { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .avatar {
+      width: 100px; height: 100px; border-radius: 50%;
+      border: 3px solid var(--accent);
+      background: #2e2a26;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 36px; font-weight: 900;
+      color: var(--accent); letter-spacing: -2px;
+    }
+    .name-block { text-align: center; }
+    .name-block .fname { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #fff; }
+    .name-block .lname { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 2px; }
+    .name-block .title {
+      margin-top: 10px; font-size: 11px; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 2.5px; font-weight: 600;
+      border-top: 1px solid #2e2a26; border-bottom: 1px solid #2e2a26; padding: 6px 0;
+    }
+    .s-section-title {
+      font-size: 9px; text-transform: uppercase; letter-spacing: 3px;
+      color: var(--accent); font-weight: 600;
+      margin-bottom: 14px; padding-bottom: 6px;
+      border-bottom: 1px solid #2e2a26;
+    }
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .contact-list li { font-size: 12px; color: #b8b2a8; display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
+    .contact-list li .icon { color: var(--accent); font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+    .contact-list li a { color: #b8b2a8; text-decoration: none; word-break: break-all; }
+    .contact-list li a:hover { color: var(--accent); }
+    .skill-tag {
+      display: inline-block; background: #2e2a26;
+      border: 1px solid #3d3830; color: #ccc8c0;
+      font-size: 11px; padding: 4px 10px; border-radius: 3px; margin: 3px 3px 3px 0;
+    }
+    .lang-item { margin-bottom: 12px; }
+    .lang-item .lang-name { display: flex; justify-content: space-between; font-size: 12px; color: #ccc8c0; margin-bottom: 5px; }
+    .lang-item .lang-name span:last-child { color: var(--muted); font-size: 10px; }
+    .lang-bar { height: 3px; background: #2e2a26; border-radius: 2px; overflow: hidden; }
+    .lang-bar-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+    .interests-list { display: flex; flex-direction: column; gap: 8px; }
+    .interest-item { font-size: 12px; color: #b8b2a8; }
+    .interest-item .interest-title { color: #ccc8c0; font-weight: 500; }
+    /* MAIN */
+    .main { padding: 48px 40px; display: flex; flex-direction: column; gap: 36px; }
+    .main-header { border-bottom: 2px solid var(--ink); padding-bottom: 20px; }
+    .main-header h1 {
+      font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 900;
+      color: var(--ink); line-height: 1; letter-spacing: -1px;
+    }
+    .main-header h1 span { color: var(--accent); }
+    .main-header .subtitle { margin-top: 6px; font-size: 13px; text-transform: uppercase; letter-spacing: 3px; color: var(--muted); font-weight: 500; }
+    .section-title {
+      font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700;
+      color: var(--ink); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+    .objective-box {
+      background: var(--accent-light); border-left: 3px solid var(--accent);
+      padding: 16px 20px; font-size: 13px; line-height: 1.75; color: #3a3530;
+    }
+    .timeline { display: flex; flex-direction: column; gap: 20px; }
+    .tl-item { display: grid; grid-template-columns: 110px 1fr; gap: 16px; align-items: start; }
+    .tl-date {
+      text-align: right; padding-right: 16px; border-right: 2px solid var(--rule);
+      padding-top: 2px; position: relative;
+    }
+    .tl-date::after {
+      content: ''; position: absolute; right: -5px; top: 7px;
+      width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+    }
+    .tl-date .period { font-size: 11px; font-weight: 600; color: var(--accent); line-height: 1.4; }
+    .tl-date .duration { font-size: 10px; color: var(--muted); margin-top: 2px; }
+    .tl-content .role { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .tl-content .company { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .tl-content ul { margin-top: 8px; padding-left: 0; list-style: none; }
+    .tl-content ul li { font-size: 12px; color: #4a4540; line-height: 1.6; padding-left: 14px; position: relative; }
+    .tl-content ul li::before { content: '-'; position: absolute; left: 0; color: var(--accent); }
+    .edu-grid { display: flex; flex-direction: column; gap: 14px; }
+    .edu-item {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding-bottom: 14px; border-bottom: 1px solid var(--rule); gap: 16px;
+    }
+    .edu-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .edu-item .edu-title { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .edu-item .edu-school { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .edu-item .edu-year { font-size: 11px; font-weight: 600; color: var(--accent); white-space: nowrap; }
+    .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .cert-item { background: #f3ede6; border: 1px solid var(--rule); padding: 10px 14px; border-radius: 2px; }
+    .cert-item .cert-name { font-size: 11.5px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+    .cert-item .cert-org { font-size: 10px; color: var(--muted); margin-top: 3px; }
+    @media print { body { background: white; padding: 0; } .page { box-shadow: none; } }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="avatar-wrap">
+      <div class="avatar">LN</div>
+      <div class="name-block">
+        <div class="fname">Lucien Brice</div>
+        <div class="lname">Nzeutom Tchoupo</div>
+        <div class="title">Data Analyst</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="s-section-title">Contact</div>
+      <ul class="contact-list">
+        <li><span class="icon">&#9993;</span><span>nzeutomlucien04@gmail.com</span></li>
+        <li><span class="icon">&#9742;</span><span>+33 7 44 78 72 55</span></li>
+        <li><span class="icon">&#8962;</span><span>22 Avenue Elléon<br>13010 Marseille, France</span></li>
+        <li><span class="icon">in</span><a href="https://www.linkedin.com/in/lucien-n-a4ab91230" target="_blank">linkedin.com/in/lucien-n-a4ab91230</a></li>
+        <li><span class="icon">&#9663;</span><a href="https://github.com/TheGoatLucien" target="_blank">github.com/TheGoatLucien</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="s-section-title">Compétences</div>
+      <div>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Microsoft Excel</span>
+        <span class="skill-tag">dbt</span>
+        <span class="skill-tag">Snowflake</span>
+        <span class="skill-tag">Cloud Computing</span>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Data Visualization</span>
+        <span class="skill-tag">Storytelling analytique</span>
+        <span class="skill-tag">Travail en équipe</span>
+        <span class="skill-tag">Rigueur &amp; précision</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="s-section-title">Langues</div>
+      <div class="lang-item">
+        <div class="lang-name"><span>Français</span><span>Bilingue</span></div>
+        <div class="lang-bar"><div class="lang-bar-fill" style="width:100%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name"><span>Anglais</span><span>C1-C2</span></div>
+        <div class="lang-bar"><div class="lang-bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name"><span>Italien</span><span>B1-B2</span></div>
+        <div class="lang-bar"><div class="lang-bar-fill" style="width:73%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name"><span>Espagnol</span><span>A1-A2</span></div>
+        <div class="lang-bar"><div class="lang-bar-fill" style="width:30%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name"><span>Japonais</span><span>A1-A2</span></div>
+        <div class="lang-bar"><div class="lang-bar-fill" style="width:20%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name"><span>Swahili</span><span>A1-A2</span></div>
+        <div class="lang-bar"><div class="lang-bar-fill" style="width:20%"></div></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="s-section-title">Intérêts</div>
+      <div class="interests-list">
+        <div class="interest-item"><span class="interest-title">Musculation</span> — pratique régulière</div>
+        <div class="interest-item"><span class="interest-title">Lecture</span> — romans thriller</div>
+        <div class="interest-item"><span class="interest-title">Jeux vidéo</span> — jeux de sports</div>
+        <div class="interest-item"><span class="interest-title">Sorties</span> — nature &amp; amis</div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="main-header">
+      <h1>Lucien <span>Nzeutom</span></h1>
+      <div class="subtitle">Data Analyst · Mobilité nationale · Né le 04/08/2004</div>
+    </div>
+
+    <!-- Profil -->
+    <section>
+      <div class="section-title">Profil</div>
+      <div class="objective-box">
+        Je transforme les données en décisions. Analyste de formation, je combine rigueur technique et conseil pour guider les équipes vers une culture data. J'ai réalisé plusieurs projets démontrant ma maîtrise de Power BI, Python et SQL — dont la détection de faux billets et l'analyse de profils. Je maîtrise également Excel, Git, dbt et Snowflake, avec une passion pour la data visualisation et le storytelling analytique. Ma capacité à parler plusieurs langues illustre mon goût pour l'apprentissage continu.
+      </div>
+    </section>
+
+    <!-- Formation -->
+    <section>
+      <div class="section-title">Formation</div>
+      <div class="edu-grid">
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">Diplôme RNCP Bac+4 — Data Analyst</div>
+            <div class="edu-school">OpenClassrooms · Paris · <em style="color:var(--accent);font-style:normal;font-weight:600;">Attestation de réussite obtenue — diplôme en cours de délivrance</em></div>
+            <div class="edu-school" style="margin-top:4px;font-size:11px;color:#999;">Université accréditée aux États-Unis</div>
+          </div>
+          <div class="edu-year">2026</div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">Software Engineering</div>
+            <div class="edu-school">ICT University · Yaoundé · Bac +2</div>
+          </div>
+          <div class="edu-year">06/2022</div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">Maîtrise en langue italienne B2</div>
+            <div class="edu-school">Centro Italiano · Yaoundé · Bac +2</div>
+          </div>
+          <div class="edu-year">05/2021</div>
+        </div>
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">BAC Scientifique</div>
+            <div class="edu-school">Lycée de la Cité Verte · Yaoundé</div>
+          </div>
+          <div class="edu-year">08/2019</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section>
+      <div class="section-title">Certifications OpenClassrooms</div>
+      <div class="cert-grid">
+        <div class="cert-item">
+          <div class="cert-name">Réalisez une analyse exploratoire de données</div>
+          <div class="cert-org">OpenClassrooms · 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Réalisez des dashboards avec Power BI</div>
+          <div class="cert-org">OpenClassrooms · 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Initiez-vous au Machine Learning</div>
+          <div class="cert-org">OpenClassrooms · 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Initiez-vous à dbt Cloud pour la transformation de données</div>
+          <div class="cert-org">OpenClassrooms · 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Modélisez vos bases de données</div>
+          <div class="cert-org">OpenClassrooms · 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Découvrez les librairies Python pour la Data Science</div>
+          <div class="cert-org">OpenClassrooms · 2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Requêtez une base de données avec SQL</div>
+          <div class="cert-org">OpenClassrooms · 2025</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Révélez votre potentiel : Préparez votre transition de carrière</div>
+          <div class="cert-org">OpenClassrooms · 2025</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expériences professionnelles -->
+    <section>
+      <div class="section-title">Expériences professionnelles</div>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-date">
+            <div class="period">12/2025<br>04/2026</div>
+            <div class="duration">5 mois</div>
+          </div>
+          <div class="tl-content">
+            <div class="role">Polyvalent en hôtellerie et restauration</div>
+            <div class="company">NEACLUB · France</div>
+            <ul>
+              <li>Travail en équipe dans un environnement dynamique</li>
+              <li>Capacité à travailler sous pression</li>
+              <li>Gestion de la clientèle</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-date">
+            <div class="period">07/2025<br>10/2025</div>
+            <div class="duration">4 mois</div>
+          </div>
+          <div class="tl-content">
+            <div class="role">Polyvalent en hôtellerie et restauration</div>
+            <div class="company">NEACLUB · France</div>
+            <ul>
+              <li>Développement des compétences en travail d'équipe et collaboration efficace</li>
+              <li>Capacité de travailler efficacement sous pression</li>
+              <li>Amélioration des compétences en communication et résolution de problèmes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-date">
+            <div class="period">10/2024<br>01/2025</div>
+            <div class="duration">4 mois</div>
+          </div>
+          <div class="tl-content">
+            <div class="role">Inventoriste</div>
+            <div class="company">RGIS Marseille · France</div>
+            <ul>
+              <li>Réalisation des inventaires physiques des stocks en magasin</li>
+              <li>Vérification de la concordance entre inventaire physique et enregistrements comptables</li>
+              <li>Identification et rapp
