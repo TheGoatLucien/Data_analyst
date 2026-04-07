@@ -1,22 +1,37 @@
-# Data Analyst Projects and Courses
+# 📊 Data Analyst - Projets & Cours
 
-Welcome to the comprehensive overview of various data analyst projects and courses available. This README is designed to help you navigate through the learning path and understand the skills needed to excel as a data analyst.
+Bienvenue sur mon repository de **projets et cours** en **Data Analysis**. Ce espace regroupe mes travaux pratiques, analyses de données et solutions développées dans le cadre de ma formation en Data Analytics.
 
-## Key Skills for Data Analysts
-- **Statistical Analysis**: Understanding and applying statistical methods to interpret data.
-- **Data Manipulation**: Proficiency in SQL for database management and data retrieval.
-- **Data Visualization**: Ability to create clear and informative charts and graphs using tools like Tableau or Power BI.
-- **Programming**: Knowledge of programming languages such as Python or R for data analysis.
+---
 
-## Notable Projects
-1. **Sales Data Analysis**: Analyze sales data to uncover trends and insights that can help businesses improve their sales strategies.
-2. **Customer Segmentation**: Using clustering techniques to identify distinct customer segments based on purchasing behavior.
-3. **A/B Testing**: Design and conduct experiments to compare two or more variants of a webpage or product to determine which one performs better.
+## 📁 Contenu du Repository
 
-## Recommended Courses
-- **Introduction to Data Analysis (Coursera)**: A beginner's course that covers the fundamentals of data analysis.
-- **Data Science and Analytics Bootcamp (Udacity)**: A comprehensive program that includes hands-on projects.
-- **Advanced SQL for Data Scientists (DataCamp)**: Focuses on advanced SQL techniques for complex data retrieval tasks.
+### 📂 Projets
+Retrouvez ici tous mes **projets Data** :
+- **Projet 8** : Workflow dbt - Analyse Sociodémographique OpenClassrooms
+  - Pipeline de transformation des données étudiants
+  - Analyse démographique et géographique
+  - Comparaison avec données INSEE
+  - Technologies : Snowflake, dbt Cloud, SQL
 
-## Conclusion
-This README serves as a guide to both projects and further learning resources in data analysis. Whether you are just starting out or looking to sharpen your skills, these projects and courses will help you build a solid foundation in data analytics.
+### 📚 Cours
+Matériaux et exercices pratiques des cours suivis en **Data Analysis**.
+
+---
+
+## 🛠️ Technologies Utilisées
+
+- **Bases de données** : Snowflake, SQL, excel
+- **Transformation de données** : dbt Cloud
+- **Langages** : SQL, Python, Jupyter Notebook
+- **Visualisation** : HTML, Dashboards PowerBI
+- **Versioning** : Git & GitHub
+
+---
+
+## 🚀 Comment Utiliser ce Repository
+
+### 1. **Cloner le repository**
+```bash
+git clone https://github.com/TheGoatLucien/Data_analyst.git
+cd Data_analyst
