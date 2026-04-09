@@ -13,6 +13,7 @@ Retrouvez ici tous mes **projets Data** :
   - Analyse démographique et géographique
   - Comparaison avec données INSEE
   - Technologies : Snowflake, dbt Cloud, SQL
+## Retrouvez aussi mon portfolio 
 
 ### 📚 Documents
 Mes documents lié à mes certifications.
