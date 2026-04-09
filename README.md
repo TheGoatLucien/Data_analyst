@@ -14,8 +14,8 @@ Retrouvez ici tous mes **projets Data** :
   - Comparaison avec données INSEE
   - Technologies : Snowflake, dbt Cloud, SQL
 
-### 📚 Cours
-Matériaux et exercices pratiques des cours suivis en **Data Analysis**.
+### 📚 Documents
+Mes documents lié à mes certifications.
 
 ---
 
