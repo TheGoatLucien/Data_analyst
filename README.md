@@ -1,4 +1,4 @@
-# 📊 Data Analyst - Projets & Cours
+# 📊 Data Analyst - Projets+ Portfolio
 
 Bienvenue sur mon repository de **projets et cours** en **Data Analysis**. Ce espace regroupe mes travaux pratiques, analyses de données et solutions développées dans le cadre de ma formation en Data Analytics.
 
@@ -16,7 +16,7 @@ Retrouvez ici tous mes **projets Data** :
 ## Retrouvez aussi mon portfolio 
 
 ### 📚 Documents
-Mes documents lié à mes certifications.
+Juste des  documents .
 
 ---
 
