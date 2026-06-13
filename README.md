@@ -16,7 +16,7 @@ Retrouvez ici tous mes **projets Data** :
 ## Retrouvez aussi mon portfolio 
 
 ### 📚 Documents
-Juste des  documents .
+Certificats de compétences, évaluations de projets et diplômes obtenus dans le cadre de la formation Data Analyst OpenClassrooms (fichiers PDF).
 
 ---
 
