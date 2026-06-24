@@ -1,0 +1,232 @@
+{
+  "n_matchs": 1900,
+  "n_exploitables": 1814,
+  "n_saisons": 5,
+  "taux_victoire_domicile": 0.432,
+  "accuracy_naif": 0.568,
+  "n_features": 21,
+  "fenetre": 5,
+  "resultats": {
+    "Regression logistique": {
+      "cv_auc": 0.682,
+      "accuracy": 0.584,
+      "precision": 0.495,
+      "recall": 0.624,
+      "f1": 0.552,
+      "auc": 0.643
+    },
+    "Random Forest": {
+      "cv_auc": 0.686,
+      "accuracy": 0.601,
+      "precision": 0.511,
+      "recall": 0.604,
+      "f1": 0.554,
+      "auc": 0.647
+    }
+  },
+  "meilleur_modele": "Random Forest",
+  "top_importances": {
+    "diff_tirs": 0.1312,
+    "diff_points": 0.0983,
+    "diff_tirs_cadres": 0.0927,
+    "diff_corners": 0.073,
+    "diff_buts_encaisses": 0.0684,
+    "dom_forme_tirs": 0.0581,
+    "diff_buts_marques": 0.0539,
+    "dom_forme_points": 0.0507,
+    "ext_forme_tirs": 0.0484,
+    "dom_forme_tirs_cadres": 0.0417
+  },
+  "kmeans_k": 4,
+  "kmeans_styles": [
+    {
+      "equipe": "Arsenal",
+      "points": 1.98,
+      "buts_marques": 1.92,
+      "buts_encaisses": 1.02,
+      "style": "Cluster 1 - Cadors (offensifs & solides)"
+    },
+    {
+      "equipe": "Aston Villa",
+      "points": 1.55,
+      "buts_marques": 1.54,
+      "buts_encaisses": 1.36,
+      "style": "Cluster 2 - Haut de tableau"
+    },
+    {
+      "equipe": "Bournemouth",
+      "points": 1.25,
+      "buts_marques": 1.31,
+      "buts_encaisses": 1.61,
+      "style": "Cluster 2 - Haut de tableau"
+    },
+    {
+      "equipe": "Brentford",
+      "points": 1.32,
+      "buts_marques": 1.5,
+      "buts_encaisses": 1.47,
+      "style": "Cluster 3 - Milieu de tableau"
+    },
+    {
+      "equipe": "Brighton",
+      "points": 1.38,
+      "buts_marques": 1.45,
+      "buts_encaisses": 1.39,
+      "style": "Cluster 2 - Haut de tableau"
+    },
+    {
+      "equipe": "Burnley",
+      "points": 0.86,
+      "buts_marques": 0.95,
+      "buts_encaisses": 1.63,
+      "style": "Cluster 4 - Bas de tableau (defense fragile)"
+    },
+    {
+      "equipe": "Chelsea",
+      "points": 1.67,
+      "buts_marques": 1.65,
+      "buts_encaisses": 1.17,
+      "style": "Cluster 2 - Haut de tableau"
+    },
+    {
+      "equipe": "Crystal Palace",
+      "points": 1.26,
+      "buts_marques": 1.26,
+      "buts_encaisses": 1.42,
+      "style": "Cluster 3 - Milieu de tableau"
+    },
+    {
+      "equipe": "Everton",
+      "points": 1.21,
+      "buts_marques": 1.08,
+      "buts_encaisses": 1.4,
+      "style": "Cluster 3 - Milieu de tableau"
+    },
+    {
+      "equipe": "Fulham",
+      "points": 1.19,
+      "buts_marques": 1.26,
+      "buts_encaisses": 1.45,
+      "style": "Cluster 3 - Milieu de tableau"
+    },
+    {
+      "equipe": "Ipswich",
+      "points": 0.58,
+      "buts_marques": 0.95,
+      "buts_encaisses": 2.16,
+      "style": "Cluster 4 - Bas de tableau (defense fragile)"
+    },
+    {
+      "equipe": "Leeds",
+      "points": 1.12,
+      "buts_marques": 1.33,
+      "buts_encaisses": 1.85,
+      "style": "Cluster 2 - Haut de tableau"
+    },
+    {
+      "equipe": "Leicester",
+      "points": 1.16,
+      "buts_marques": 1.41,
+      "buts_encaisses": 1.69,
+      "style": "Cluster 3 - Milieu de tableau"
+    },
+    {
+      "equipe": "Liverpool",
+      "points": 2.07,
+      "buts_marques": 2.15,
+      "buts_encaisses": 1.04,
+      "style": "Cluster 1 - Cadors (offensifs & solides)"
+    },
+    {
+      "equipe": "Luton",
+      "points": 0.68,
+      "buts_marques": 1.37,
+      "buts_encaisses": 2.24,
+      "style": "Cluster 4 - Bas de tableau (defense fragile)"
+    },
+    {
+      "equipe": "Man City",
+      "points": 2.26,
+      "buts_marques": 2.34,
+      "buts_encaisses": 0.89,
+      "style": "Cluster 1 - Cadors (offensifs & solides)"
+    },
+    {
+      "equipe": "Man United",
+      "points": 1.63,
+      "buts_marques": 1.52,
+      "buts_encaisses": 1.35,
+      "style": "Cluster 2 - Haut de tableau"
+    },
+    {
+      "equipe": "Newcastle",
+      "points": 1.53,
+      "buts_marques": 1.64,
+      "buts_encaisses": 1.4,
+      "style": "Cluster 2 - Haut de tableau"
+    },
+    {
+      "equipe": "Norwich",
+      "points": 0.58,
+      "buts_marques": 0.61,
+      "buts_encaisses": 2.21,
+      "style": "Cluster 4 - Bas de tableau (defense fragile)"
+    },
+    {
+      "equipe": "Nott'm Forest",
+      "points": 1.22,
+      "buts_marques": 1.27,
+      "buts_encaisses": 1.59,
+      "style": "Cluster 3 - Milieu de tableau"
+    },
+    {
+      "equipe": "Sheffield United",
+      "points": 0.51,
+      "buts_marques": 0.72,
+      "buts_encaisses": 2.2,
+      "style": "Cluster 4 - Bas de tableau (defense fragile)"
+    },
+    {
+      "equipe": "Southampton",
+      "points": 0.79,
+      "buts_marques": 1.0,
+      "buts_encaisses": 1.93,
+      "style": "Cluster 4 - Bas de tableau (defense fragile)"
+    },
+    {
+      "equipe": "Tottenham",
+      "points": 1.56,
+      "buts_marques": 1.82,
+      "buts_encaisses": 1.44,
+      "style": "Cluster 2 - Haut de tableau"
+    },
+    {
+      "equipe": "Watford",
+      "points": 0.61,
+      "buts_marques": 0.89,
+      "buts_encaisses": 2.03,
+      "style": "Cluster 4 - Bas de tableau (defense fragile)"
+    },
+    {
+      "equipe": "West Brom",
+      "points": 0.68,
+      "buts_marques": 0.92,
+      "buts_encaisses": 2.0,
+      "style": "Cluster 4 - Bas de tableau (defense fragile)"
+    },
+    {
+      "equipe": "West Ham",
+      "points": 1.35,
+      "buts_marques": 1.42,
+      "buts_encaisses": 1.52,
+      "style": "Cluster 3 - Milieu de tableau"
+    },
+    {
+      "equipe": "Wolves",
+      "points": 1.18,
+      "buts_marques": 1.1,
+      "buts_encaisses": 1.51,
+      "style": "Cluster 3 - Milieu de tableau"
+    }
+  ]
+}
