@@ -1,0 +1,8 @@
+# Indispensable (moteur TF-IDF, marche tout de suite)
+pypdf
+scikit-learn
+numpy
+
+# Optionnel — active la recherche SÉMANTIQUE (comprend les synonymes).
+# Décommente la ligne ci-dessous puis : pip install -r requirements.txt
+# sentence-transformers
